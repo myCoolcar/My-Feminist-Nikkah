@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حقوق خود را در ازدواج اسلامی بشناسید | راهنمای عقدنامه</title>
+  <meta name="description" content="راهنمای زنان مسلمان درباره حقوق خود در عقدنامه — بر اساس قرآن کریم و احادیث صحیح. مخصوص زنان ایرانی و فارسی‌زبان." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Vazirmatn: best RTL Persian web font; Amiri for Quranic Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal-deep:#1a5c5a; --teal-mid:#237a78; --teal-light:#d4ecea;
+      --gold:#b8860b; --gold-light:#f5e6b8; --gold-pale:#fdf8ec;
+      --ivory:#faf8f4; --cream:#f4f0e8; --text-dark:#1c1c1c;
+      --text-body:#2e3530; --text-muted:#5a6360; --rose:#c0574a;
+      --rose-light:#fdf0ee; --white:#ffffff;
+      --shadow-sm:0 2px 8px rgba(26,92,90,.10);
+      --shadow-md:0 4px 20px rgba(26,92,90,.14);
+      --radius-sm:8px; --radius-md:14px; --radius-lg:22px;
+      --font-display:'Vazirmatn',sans-serif;
+      --font-body:'Vazirmatn',sans-serif;
+    }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; font-size:18px; }
+    body { font-family:var(--font-body); font-size:1rem; line-height:2; color:var(--text-body); background:var(--ivory); -webkit-font-smoothing:antialiased; }
+    a { color:var(--teal-deep); text-decoration:underline; }
+    a:hover,a:focus { color:var(--teal-mid); }
+    :focus-visible { outline:3px solid var(--gold); outline-offset:3px; border-radius:4px; }
+    .container { width:100%; max-width:900px; margin:0 auto; padding:0 1.2rem; }
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+
+    /* Arabic Quranic text — always LTR within RTL page */
+    .arabic-quran {
+      font-family:'Amiri',serif; font-size:1.5rem; direction:rtl;
+      text-align:center; color:var(--teal-deep); line-height:2.2;
+      display:block; margin-bottom:.4rem;
+    }
+    .section-title { font-size:1.9rem; font-weight:800; color:var(--teal-deep); line-height:1.4; margin-bottom:.6rem; }
+    .section-subtitle { font-size:1rem; color:var(--text-muted); margin-bottom:1.8rem; }
+    .quran-block { background:var(--gold-pale); border-right:5px solid var(--gold); border-left:none; border-radius:var(--radius-sm) 0 0 var(--radius-sm); padding:1rem 1.4rem; margin:1.2rem 0; font-size:1rem; color:var(--text-body); line-height:2; }
+    .quran-block cite { display:block; font-size:.82rem; font-style:normal; font-weight:700; color:var(--gold); margin-top:.4rem; }
+    .badge { display:inline-block; background:var(--teal-light); color:var(--teal-deep); font-size:.78rem; font-weight:700; padding:.2rem .8rem; border-radius:20px; margin-bottom:.6rem; }
+    .ornament { display:flex; align-items:center; justify-content:center; gap:.6rem; margin:0 auto 1.4rem; color:var(--gold); font-size:1.4rem; opacity:.7; }
+    .ornament::before,.ornament::after { content:''; flex:1; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); max-width:120px; }
+
+    /* ─── TOP BAR ─── */
+    #top-bar { background:var(--teal-deep); color:var(--white); padding:.5rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:.8rem; flex-wrap:wrap; position:sticky; top:0; z-index:1000; box-shadow:0 2px 8px rgba(0,0,0,.2); }
+    .top-bar-tools { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .tts-btn { display:flex; align-items:center; gap:.35rem; background:rgba(255,255,255,.12); color:var(--white); border:1.5px solid rgba(255,255,255,.3); border-radius:20px; padding:.25rem .9rem; font-size:.85rem; font-weight:600; font-family:var(--font-body); cursor:pointer; transition:background .2s; }
+    .tts-btn:hover { background:rgba(255,255,255,.2); }
+    #quick-exit { background:var(--rose); color:var(--white); border:none; border-radius:20px; padding:.32rem 1.1rem; font-size:.85rem; font-weight:700; font-family:var(--font-body); cursor:pointer; display:flex; align-items:center; gap:.35rem; transition:background .15s,transform .1s; white-space:nowrap; }
+    #quick-exit:hover { background:#a0443a; transform:scale(1.04); }
+    .lang-switcher { display:flex; align-items:center; gap:.4rem; }
+    .lang-switcher a { color:rgba(255,255,255,.7); font-size:.78rem; text-decoration:none; padding:.2rem .5rem; border-radius:10px; border:1px solid rgba(255,255,255,.2); transition:background .2s; font-family:'Vazirmatn',sans-serif; }
+    .lang-switcher a:hover,.lang-switcher a.active { background:rgba(255,255,255,.2); color:#fff; }
+
+    /* ─── SAFETY WARNING BANNER ─── */
+    #safety-banner { background:#7a1c1c; color:#ffe8e8; padding:.7rem 1.2rem; text-align:center; font-size:.88rem; font-weight:600; border-bottom:2px solid #c0574a; }
+    #safety-banner strong { color:#ffcfcf; }
+
+    /* ─── SKIP ─── */
+    .skip-link { position:absolute; top:-60px; right:0; background:var(--gold); color:var(--text-dark); padding:.5rem 1rem; font-weight:700; z-index:9999; border-radius:0 0 0 var(--radius-sm); transition:top .2s; }
+    .skip-link:focus { top:0; }
+
+    /* ─── NAV ─── */
+    nav#main-nav { background:var(--cream); border-bottom:1px solid rgba(26,92,90,.1); padding:0 1rem; overflow-x:auto; }
+    .nav-inner { max-width:900px; margin:0 auto; display:flex; gap:0; white-space:nowrap; }
+    .nav-inner a { display:inline-block; padding:.75rem .9rem; font-size:.88rem; font-weight:700; color:var(--teal-deep); text-decoration:none; border-bottom:3px solid transparent; transition:border-color .2s,color .2s; }
+    .nav-inner a:hover { color:var(--gold); border-bottom-color:var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero { background:linear-gradient(135deg,var(--teal-deep) 0%,#0f3e3d 100%); color:var(--white); padding:4rem 1.2rem 3.5rem; position:relative; overflow:hidden; text-align:center; }
+    #hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 80% 50%,rgba(184,134,11,.08) 0%,transparent 60%),radial-gradient(circle at 20% 20%,rgba(212,236,234,.08) 0%,transparent 50%); pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
+    .hero-eyebrow { display:inline-block; background:rgba(184,134,11,.25); border:1px solid rgba(184,134,11,.5); color:#f5e6b8; font-size:.82rem; font-weight:700; padding:.3rem 1rem; border-radius:20px; margin-bottom:1.2rem; }
+    #hero h1 { font-size:clamp(2rem,6vw,3.2rem); font-weight:800; line-height:1.4; color:var(--white); margin-bottom:.9rem; }
+    #hero h1 span { color:#f5e6b8; }
+    #hero .hero-sub { font-size:clamp(.95rem,2.5vw,1.15rem); color:rgba(255,255,255,.85); margin-bottom:1.6rem; font-weight:500; }
+    .hero-verse { background:rgba(255,255,255,.08); border:1px solid rgba(245,230,184,.3); border-radius:var(--radius-md); padding:1.2rem 1.6rem; margin:1.4rem auto 1.6rem; max-width:580px; }
+    .hero-verse .arabic-large { font-family:'Amiri',serif; font-size:1.7rem; color:#f5e6b8; direction:rtl; display:block; line-height:2.2; margin-bottom:.4rem; }
+    .hero-verse .farsi-trans { font-size:.98rem; color:rgba(255,255,255,.85); display:block; line-height:1.9; }
+    .hero-verse cite { display:block; font-size:.78rem; font-style:normal; font-weight:700; color:rgba(245,230,184,.7); margin-top:.4rem; }
+    .hero-intro { font-size:.97rem; color:rgba(255,255,255,.8); max-width:580px; margin:0 auto; line-height:2; }
+    .hero-scroll { display:inline-flex; align-items:center; gap:.5rem; margin-top:1.8rem; background:rgba(255,255,255,.1); color:#f5e6b8; padding:.5rem 1.4rem; border-radius:30px; font-size:.9rem; font-weight:700; text-decoration:none; border:1px solid rgba(245,230,184,.3); transition:background .2s; }
+    .hero-scroll:hover { background:rgba(255,255,255,.18); color:#fff; }
+
+    /* ─── SECTIONS ─── */
+    .page-section { padding:3.5rem 0; }
+    .page-section:nth-of-type(even) { background:var(--cream); }
+
+    /* ─── INFO CARDS ─── */
+    .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+    .info-card { background:var(--white); border-radius:var(--radius-md); padding:1.4rem 1.2rem; box-shadow:var(--shadow-sm); border-top:4px solid var(--teal-mid); display:flex; flex-direction:column; gap:.5rem; }
+    .info-card .card-icon { font-size:2rem; line-height:1; margin-bottom:.3rem; }
+    .info-card h3 { font-size:1.08rem; font-weight:800; color:var(--teal-deep); }
+    .info-card p { font-size:.93rem; color:var(--text-body); line-height:1.9; }
+
+    /* ─── IMPORTANT LEGAL NOTE ─── */
+    .legal-note { background:linear-gradient(135deg,#fff3cd,#fff8e1); border:2px solid #e6a817; border-radius:var(--radius-md); padding:1.2rem 1.5rem; margin:1.5rem 0; display:flex; gap:.8rem; align-items:flex-start; }
+    .legal-note .ln-icon { font-size:1.8rem; flex-shrink:0; }
+    .legal-note p { font-size:.9rem; color:#4a3200; line-height:1.9; }
+    .legal-note strong { color:#7a4e00; }
+
+    /* ─── ACCORDION ─── */
+    .accordion-list { display:flex; flex-direction:column; gap:.8rem; margin-top:1.8rem; }
+    .accordion-item { background:var(--white); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); overflow:hidden; border:1.5px solid transparent; transition:border-color .2s,box-shadow .2s; }
+    .accordion-item:hover { box-shadow:var(--shadow-md); border-color:var(--teal-light); }
+    .accordion-trigger { width:100%; background:none; border:none; cursor:pointer; padding:1.1rem 1.3rem; display:flex; align-items:center; gap:.8rem; text-align:right; font-family:var(--font-body); transition:background .15s; }
+    .accordion-trigger:hover,.accordion-trigger[aria-expanded="true"] { background:var(--teal-light); }
+    .acc-icon { font-size:1.7rem; flex-shrink:0; width:2.2rem; text-align:center; }
+    .acc-title-wrap { flex:1; text-align:right; }
+    .acc-label { font-size:.72rem; font-weight:700; color:var(--teal-mid); display:block; margin-bottom:.1rem; }
+    .acc-title { font-size:1rem; font-weight:800; color:var(--teal-deep); display:block; line-height:1.5; }
+    .acc-chevron { font-size:1rem; color:var(--teal-mid); transition:transform .25s ease; flex-shrink:0; }
+    .accordion-trigger[aria-expanded="true"] .acc-chevron { transform:rotate(-180deg); }
+    .accordion-body { display:none; padding:0 1.3rem 1.3rem; border-top:1px solid var(--teal-light); }
+    .accordion-body.is-open { display:block; animation:slideDown .2s ease; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);} }
+    .acc-section { margin-top:1rem; }
+    .acc-section h4 { font-size:.8rem; font-weight:700; text-transform:uppercase; letter-spacing:.04em; color:var(--gold); margin-bottom:.3rem; }
+    .acc-section p,.acc-section ul { font-size:.93rem; color:var(--text-body); line-height:1.9; }
+    .acc-section ul { padding-right:1.3rem; padding-left:0; }
+    .acc-section ul li { margin-bottom:.3rem; }
+    .ref-tag { display:inline-block; background:var(--gold-light); color:var(--gold); font-size:.75rem; font-weight:700; border-radius:6px; padding:.15rem .55rem; margin-top:.5rem; }
+
+    /* ─── CLAUSE BOXES ─── */
+    .clause-box { background:var(--white); border:2px dashed var(--teal-mid); border-radius:var(--radius-md); padding:1.4rem 1.6rem; margin-bottom:1.2rem; }
+    .clause-box h3 { font-size:1.05rem; font-weight:800; color:var(--teal-deep); margin-bottom:.6rem; }
+    .clause-wording { background:var(--teal-light); border-radius:var(--radius-sm); padding:.9rem 1.1rem; font-size:.97rem; color:var(--text-dark); line-height:2; border-right:4px solid var(--teal-mid); border-left:none; }
+    .clause-note { font-size:.83rem; color:var(--text-muted); margin-top:.6rem; font-style:italic; }
+
+    /* ─── REMINDER ─── */
+    .reminder-banner { background:linear-gradient(135deg,var(--gold-pale),#fef9ec); border:2px solid var(--gold-light); border-radius:var(--radius-lg); padding:2rem; text-align:center; }
+    .reminder-banner .reminder-icon { font-size:2.5rem; margin-bottom:.6rem; }
+    .reminder-banner h2 { font-size:1.7rem; font-weight:800; color:var(--teal-deep); margin-bottom:.8rem; }
+    .reminder-banner p { max-width:560px; margin:0 auto .8rem; font-size:.97rem; color:var(--text-body); }
+    .reminder-list { list-style:none; padding:0; text-align:right; max-width:520px; margin:1rem auto 0; display:flex; flex-direction:column; gap:.7rem; }
+    .reminder-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.95rem; color:var(--text-body); }
+    .reminder-list .li-icon { font-size:1.1rem; margin-top:.05rem; flex-shrink:0; }
+
+    /* ─── RESOURCES ─── */
+    .resource-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+    .resource-card { background:var(--white); border-radius:var(--radius-md); padding:1.4rem 1.3rem; box-shadow:var(--shadow-sm); border-bottom:4px solid var(--gold); display:flex; flex-direction:column; gap:.5rem; }
+    .resource-card .res-icon { font-size:2rem; margin-bottom:.2rem; }
+    .resource-card h3 { font-size:1.05rem; font-weight:800; color:var(--teal-deep); }
+    .resource-card p { font-size:.9rem; color:var(--text-muted); line-height:1.85; flex:1; }
+    .org-link { display:inline-flex; align-items:center; gap:.3rem; font-size:.82rem; font-weight:700; color:var(--teal-mid); background:var(--teal-light); padding:.2rem .65rem; border-radius:12px; text-decoration:none; margin:.2rem .2rem 0 0; transition:background .15s; }
+    .org-link:hover { background:var(--teal-deep); color:var(--white); }
+    .emergency-strip { background:linear-gradient(90deg,#c0574a,#a0443a); color:var(--white); border-radius:var(--radius-sm); padding:.6rem 1rem; display:flex; align-items:center; gap:.6rem; margin-top:.8rem; font-size:.85rem; font-weight:700; }
+
+    /* ─── SAFETY ─── */
+    .safety-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+    .safety-card { background:var(--white); border-radius:var(--radius-md); padding:1.4rem 1.2rem; box-shadow:var(--shadow-sm); border-top:4px solid var(--rose); }
+    .safety-card .s-icon { font-size:2rem; margin-bottom:.4rem; }
+    .safety-card h3 { font-size:1.05rem; font-weight:800; color:var(--teal-deep); margin-bottom:.5rem; }
+    .safety-card p,.safety-card ul,.safety-card ol { font-size:.9rem; color:var(--text-body); line-height:1.9; }
+    .safety-card ul,.safety-card ol { padding-right:1.2rem; padding-left:0; }
+    .safety-card li { margin-bottom:.3rem; }
+    .browser-steps { background:var(--cream); border-radius:var(--radius-sm); padding:.8rem 1rem; margin-top:.8rem; }
+    .browser-steps summary { font-weight:700; font-size:.85rem; color:var(--teal-deep); cursor:pointer; list-style:none; }
+    .browser-steps ol { margin-top:.6rem; padding-right:1.2rem; padding-left:0; }
+    .browser-steps ol li { font-size:.82rem; margin-bottom:.3rem; }
+
+    /* ─── FOOTER ─── */
+    footer { background:var(--teal-deep); color:rgba(255,255,255,.75); text-align:center; padding:2rem 1.2rem; font-size:.88rem; line-height:2; }
+    footer strong { color:#f5e6b8; }
+    footer .footer-ornament { font-size:1.5rem; margin-bottom:.8rem; display:block; opacity:.5; }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:600px){
+      html { font-size:16px; }
+      #top-bar { flex-direction:column; align-items:flex-start; gap:.6rem; padding:.6rem 1rem; }
+      #hero { padding:3rem 1rem 2.5rem; }
+      .hero-inner { text-align:right; }
+      .section-title { font-size:1.6rem; }
+      .accordion-trigger { padding:1rem; }
+      .accordion-body { padding:0 1rem 1rem; }
+      .reminder-banner { padding:1.4rem 1rem; }
+      .nav-inner a { padding:.6rem .65rem; font-size:.82rem; }
+    }
+    @media(min-width:768px){ .page-section { padding:4.5rem 0; } }
+    @media print {
+      #top-bar,nav#main-nav,.hero-scroll,#quick-exit,#safety-banner { display:none!important; }
+      .accordion-body { display:block!important; }
+      body { font-size:12pt; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">رفتن به محتوای اصلی</a>
+
+<!-- SAFETY BANNER — shown by default for Iran context -->
+<div id="safety-banner" role="alert" aria-live="polite">
+  <strong>⚠️ امنیت شما مهم‌ترین چیز است.</strong> اگر نگران هستید کسی این صفحه را ببیند، از حالت مرورگر خصوصی استفاده کنید. دکمه «خروج سریع» بالای صفحه شما را فوراً به گوگل می‌برد.
+</div>
+
+<!-- TOP BAR -->
+<div id="top-bar" role="banner" aria-label="ابزارهای دسترسی‌پذیری">
+  <div class="top-bar-tools">
+    <button class="tts-btn" id="tts-btn" aria-label="خواندن این صفحه با صدا" onclick="handleTTS()">
+      <span aria-hidden="true">🔊</span>
+      <span>پخش صدا</span>
+    </button>
+    <div class="lang-switcher" aria-label="انتخاب زبان">
+      <a href="nikah-rights-ar.html" lang="ar">عربي</a>
+      <a href="nikah-rights-hi.html" lang="hi">हिन्दी</a>
+      <a href="nikah-rights-ku.html" lang="ku">کوردی</a>
+      <a href="nikah-rights-fa.html" class="active" lang="fa">فارسی</a>
+      <a href="nikah-rights__1_.html" lang="en">English</a>
+    </div>
+  </div>
+  <button id="quick-exit" aria-label="خروج سریع — ترک فوری این صفحه" onclick="quickExit()">
+    <span aria-hidden="true">✕</span> خروج سریع
+  </button>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="main-nav" aria-label="بخش‌های صفحه">
+  <div class="nav-inner">
+    <a href="#hero">خانه</a>
+    <a href="#why-matters">چرا مهم است</a>
+    <a href="#iran-law">قانون در ایران</a>
+    <a href="#your-rights">حقوق شما</a>
+    <a href="#example-clauses">نمونه شروط</a>
+    <a href="#reminder">یادآوری مهم</a>
+    <a href="#resources">کمک بگیرید</a>
+    <a href="#privacy-safety">امنیت آنلاین</a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <span class="hero-eyebrow" aria-hidden="true">راهنمای عقدنامه اسلامی</span>
+      <h1 id="hero-heading">حقوق خود را<br /><span>در ازدواج اسلامی بشناسید</span></h1>
+      <p class="hero-sub">عقدنامه می‌تواند از شما محافظت کند. اسلام شرط گذاشتن در ازدواج را مجاز می‌داند — بلکه تشویق می‌کند.</p>
+      <div class="hero-verse" aria-label="آیه قرآن کریم">
+        <span class="arabic-large">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ﴾</span>
+        <span class="farsi-trans">«ای کسانی که ایمان آورده‌اید، به پیمان‌ها وفا کنید.»</span>
+        <cite>سوره مائده، آیه ۱</cite>
+      </div>
+      <p class="hero-intro">
+        خداوند ﷻ به عدالت، مهربانی و وفا به پیمان‌ها فرمان داده است. عقد نکاح فقط یک مراسم نیست — یک قرارداد حقوقی و دینی است. شما حق دارید شرط‌هایی در آن بگذارید که از شما حمایت کند. این راهنما حقوق شما را با زبان ساده، بر اساس قرآن کریم و سنت نبوی توضیح می‌دهد.
+      </p>
+      <a href="#why-matters" class="hero-scroll" aria-label="ادامه خواندن">
+        <span aria-hidden="true">↓</span> شروع خواندن
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY NIKAH MATTERS -->
+  <section id="why-matters" class="page-section" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">شناخت عقدنامه</span>
+      <h2 class="section-title" id="why-heading">چرا عقدنامه مهم است؟</h2>
+      <p class="section-subtitle">نکاح فراتر از یک مراسم است. این یک قرارداد الزام‌آور با حقوق و وظایف متقابل برای هر دو همسر است.</p>
+      <blockquote class="quran-block" aria-label="آیه قرآن درباره زندگی زناشویی">
+        <span class="arabic-quran">﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾</span>
+        «و با آنان به شایستگی زندگی کنید.»
+        <cite>سوره نساء، آیه ۱۹</cite>
+      </blockquote>
+      <div class="info-grid" role="list">
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">📜</div>
+          <h3>عقدنامه چیست؟</h3>
+          <p>نکاح قرارداد ازدواج اسلامی است. این یک توافق حقوقی و دینی بین دو نفر است که باید با اراده آزاد — بدون اجبار — صورت گیرد و شاهد داشته باشد.</p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">✅</div>
+          <h3>آیا می‌توانم شرط بگذارم؟</h3>
+          <p>بله. فقهای اسلامی اتفاق نظر دارند که زن می‌تواند شرط‌های مشروع در عقدنامه خود بگذارد. پیامبر ﷺ فرمودند: «المسلمون عند شروطهم» — مسلمانان پایبند شرط‌های خود هستند.</p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">💡</div>
+          <h3>چرا بیشتر زنان از این حق نمی‌دانند؟</h3>
+          <p>بسیاری از زنان مسلمان از این حق آگاه نشده‌اند. سنت‌های فرهنگی، فشار جامعه، و شرایط آماده‌سازی عروسی باعث می‌شود که صحبت از آن سخت باشد. این راهنما برای تغییر این وضع است.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IRAN LEGAL CONTEXT -->
+  <section id="iran-law" class="page-section" aria-labelledby="iran-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">🇮🇷 وضعیت حقوقی در ایران</span>
+      <h2 class="section-title" id="iran-heading">قانون ازدواج در ایران</h2>
+      <p class="section-subtitle">حقوق اسلامی زنان در همه جا معتبر است — اما چگونه قانون ایران از شما محافظت می‌کند، پیچیدگی‌های خاص خود را دارد.</p>
+
+      <div class="legal-note" role="note">
+        <span class="ln-icon" aria-hidden="true">⚠️</span>
+        <p><strong>توجه مهم:</strong> این صفحه اطلاعات آموزشی ارائه می‌دهد، نه مشاوره حقوقی. قوانین خانواده در ایران بر اساس فقه شیعه جعفری است. اجرای این قوانین در عمل با موانع جدی روبروست. اگر در ایران هستید، دسترسی به وکیل خانواده می‌تواند حیاتی باشد. <strong>اگر خارج از ایران هستید، حتماً با سازمان‌های حمایتی دیاسپورا تماس بگیرید.</strong></p>
+      </div>
+
+      <div class="info-grid" role="list">
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">📋</div>
+          <h3>عقدنامه رسمی ایران</h3>
+          <p>در ایران، ازدواج باید در دفاتر رسمی ثبت ازدواج ثبت شود. عقدنامه‌های رسمی دولتی دارای ۱۲ شرط چاپی هستند که زن می‌تواند برخی را قبول کند. علاوه بر آن‌ها، <strong>می‌توان شرط‌های اضافی نیز در سند قید کرد.</strong></p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">🔑</div>
+          <h3>شرط وکالت در طلاق</h3>
+          <p>در قانون مدنی ایران، زن می‌تواند وکالت بلاعزل طلاق دریافت کند. یعنی شوهر به زن وکالت می‌دهد که در شرایط خاص، طلاق خود را ثبت کند. این مهم‌ترین شرطی است که باید در عقدنامه درخواست کنید.</p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">⚖️</div>
+          <h3>طلاق و دادگاه خانواده</h3>
+          <p>در ایران، طلاق مرد آسان‌تر است. زن برای طلاق نیاز به دادگاه دارد مگر آنکه وکالت داشته باشد. دادگاه‌های خانواده در شهرهای بزرگ وجود دارند. فرآیند طولانی و دشوار است — داشتن شروط مکتوب در عقدنامه وضع را بهتر می‌کند.</p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">🏛️</div>
+          <h3>حقوق خارج از ایران</h3>
+          <p>اگر در خارج از ایران زندگی می‌کنید، قانون کشور محل اقامت شما اجرا می‌شود. عقدنامه ایرانی ممکن است در کشور دیگر به رسمیت شناخته نشود. با سازمان‌های حمایتی محلی مشورت کنید تا هر دو جنبه شرعی و قانونی را بررسی کنید.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- YOUR RIGHTS -->
+  <section id="your-rights" class="page-section" aria-labelledby="rights-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">حمایت‌های شرعی شما</span>
+      <h2 class="section-title" id="rights-heading">حقوق اصلی که می‌توانید در عقدنامه بگذارید</h2>
+      <p class="section-subtitle">روی هر حق کلیک کنید — بدانید چه معنایی دارد، چطور از شما محافظت می‌کند، و منبع اسلامی آن کجاست.</p>
+      <div class="accordion-list" role="list" aria-label="حقوق نکاح — بخش‌های قابل گسترش">
+
+        <!-- 1 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-1" id="acc-btn-1" onclick="toggleAccordion(this,'acc-body-1')">
+            <span class="acc-icon" aria-hidden="true">💍</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط اول</span>
+              <span class="acc-title">تک‌همسری — ازدواج مجدد بدون رضایت شما ممنوع</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-1" role="region" aria-labelledby="acc-btn-1">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>می‌توانید شرط کنید که شوهر بدون اطلاع و رضایت مکتوب شما با زن دیگری ازدواج نکند. در صورت نقض، حق جدایی دارید.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>از همان ابتدا توافق روشنی ایجاد می‌کند.</li>
+                <li>تعدد زوجات را حرام نمی‌کند — فقط حق انتخاب به شما می‌دهد.</li>
+                <li>از ثبات عاطفی، مالی و عملی زندگی شما محافظت می‌کند.</li>
+                <li>در عقدنامه رسمی ایران، این یکی از ۱۲ شرط چاپی است که می‌توانید قبول کنید.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿وَلَن تَسْتَطِيعُوا أَن تَعْدِلُوا بَيْنَ النِّسَاءِ وَلَوْ حَرَصْتُمْ﴾</span>
+                «هرگز نمی‌توانید میان زنان به عدالت رفتار کنید، هر چند سخت بکوشید.»
+                <cite>سوره نساء، آیه ۱۲۹</cite>
+              </blockquote>
+              <span class="ref-tag">📚 ابن قدامه، المغنی؛ فقه حنبلی</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-2" id="acc-btn-2" onclick="toggleAccordion(this,'acc-body-2')">
+            <span class="acc-icon" aria-hidden="true">⚖️</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط دوم</span>
+              <span class="acc-title">وکالت بلاعزل طلاق برای زن</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-2" role="region" aria-labelledby="acc-btn-2">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>شوهر به شما <strong>وکالت بلاعزل</strong> می‌دهد تا در صورت وقوع شرایطی که از پیش تعیین کرده‌اید، خودتان طلاق بگیرید. این در قانون مدنی ایران به رسمیت شناخته شده است.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>بدون این وکالت، فقط مرد حق طلاق یک‌طرفه دارد.</li>
+                <li>راه خروجی بدون نیاز به طولانی‌ترین پروسه دادگاه به شما می‌دهد.</li>
+                <li>شما شرایط را تعیین می‌کنید: مثلاً ازدواج مجدد، غیبت طولانی، ترک نفقه، یا هر نوع آزار.</li>
+                <li><strong>در ایران:</strong> حتماً بخواهید «وکالت بلاعزل با حق توکیل به غیر» در عقدنامه ثبت شود.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿فَإِمْسَاكٌ بِمَعْرُوفٍ أَوْ تَسْرِيحٌ بِإِحْسَانٍ﴾</span>
+                «یا به نیکویی نگه دارید یا با خوشی رها کنید.»
+                <cite>سوره بقره، آیه ۲۲۹</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-3" id="acc-btn-3" onclick="toggleAccordion(this,'acc-body-3')">
+            <span class="acc-icon" aria-hidden="true">💰</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط سوم</span>
+              <span class="acc-title">استقلال مالی</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-3" role="region" aria-labelledby="acc-btn-3">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>در اسلام، اموال زن متعلق به خود اوست. او تکلیفی برای مشارکت در هزینه‌ها ندارد. شوهر موظف به تأمین نفقه است. می‌توانید این حق را صریحاً در عقدنامه قید کنید.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>از سوءاستفاده مالی و فشار برای واگذاری درآمدتان جلوگیری می‌کند.</li>
+                <li>حق اسلامی شما برای نگه‌داشتن اموالتان را تأیید می‌کند.</li>
+                <li>وظیفه شوهر برای تأمین نفقه را مستند می‌سازد.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿لِلرِّجَالِ نَصِيبٌ مِّمَّا اكْتَسَبُوا وَلِلنِّسَاءِ نَصِيبٌ مِّمَّا اكْتَسَبْنَ﴾</span>
+                «مردان از آنچه کسب کرده‌اند بهره‌ای دارند و زنان نیز از آنچه کسب کرده‌اند.»
+                <cite>سوره نساء، آیه ۳۲</cite>
+              </blockquote>
+              <span class="ref-tag">📚 اجماع فقهای اسلامی</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-4" id="acc-btn-4" onclick="toggleAccordion(this,'acc-body-4')">
+            <span class="acc-icon" aria-hidden="true">💼</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط چهارم</span>
+              <span class="acc-title">حق کار</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-4" role="region" aria-labelledby="acc-btn-4">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>می‌توانید شرط کنید که شوهر مانع کار شما در شغلی حلال نشود. بر اساس قانون مدنی ایران، شوهر می‌تواند از شغل زن جلوگیری کند مگر آنکه <strong>صریحاً در عقدنامه این حق به شما داده شده باشد.</strong></p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>استقلال مالی آسیب‌پذیری شما را کاهش می‌دهد.</li>
+                <li>از انزوای اقتصادی که نوعی خشونت است جلوگیری می‌کند.</li>
+                <li>حضرت خدیجه (رض) یک تاجر موفق بود — نبی ﷺ برای او کار کرد.</li>
+                <li>در ایران: این شرط باید صریحاً در عقدنامه قید شود تا قابل استناد باشد.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-5" id="acc-btn-5" onclick="toggleAccordion(this,'acc-body-5')">
+            <span class="acc-icon" aria-hidden="true">📚</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط پنجم</span>
+              <span class="acc-title">حق تحصیل</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-5" role="region" aria-labelledby="acc-btn-5">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>می‌توانید شرط کنید که شوهر مانع ادامه تحصیل شما — چه دینی چه دنیوی — نشود.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>طلب علم بر هر مسلمانی — زن و مرد — واجب است.</li>
+                <li>تحصیل از شما، فرزندانتان و جامعه‌تان محافظت می‌کند.</li>
+                <li>از استفاده از تحصیل به عنوان ابزار کنترل جلوگیری می‌کند.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">«طَلَبُ الْعِلْمِ فَرِيضَةٌ عَلَى كُلِّ مُسْلِمٍ»<cite>رواه ابن ماجه — حدیث صحیح</cite></blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-6" id="acc-btn-6" onclick="toggleAccordion(this,'acc-body-6')">
+            <span class="acc-icon" aria-hidden="true">🏡</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط ششم</span>
+              <span class="acc-title">مسکن مستقل جدا از خانواده شوهر</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-6" role="region" aria-labelledby="acc-btn-6">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>شوهر باید مسکن مستقلی برای شما فراهم کند. نمی‌توانند شما را مجبور کنند با خانواده شوهر زندگی کنید — مگر آنکه خودتان آزادانه رضایت بدهید.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>اکثر فقها این را حق اساسی زن می‌دانند.</li>
+                <li>از حریم خصوصی، کرامت و سلامت روانی شما محافظت می‌کند.</li>
+                <li>به معنای قطع رابطه با خانواده نیست — فقط حق خصوصی بودن.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿أَسْكِنُوهُنَّ مِنْ حَيْثُ سَكَنتُم مِّن وُجْدِكُمْ﴾</span>
+                «آنان را در همانجایی که خود ساکن هستید، به قدر توانایی‌تان مسکن دهید.»
+                <cite>سوره طلاق، آیه ۶</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-7" id="acc-btn-7" onclick="toggleAccordion(this,'acc-body-7')">
+            <span class="acc-icon" aria-hidden="true">🛡️</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط هفتم</span>
+              <span class="acc-title">حمایت در برابر خشونت</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-7" role="region" aria-labelledby="acc-btn-7">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>هر نوع خشونت — جسمی، روانی، کلامی یا مالی — در اسلام حرام است. می‌توانید شرطی بگذارید که در صورت هر گونه آزار، حق جدایی فوری داشته باشید.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>خشونت هرگز در اسلام مجاز نیست — نقض صریح عقد ازدواج است.</li>
+                <li>مسیر خروج روشنی که از پیش توافق شده به شما می‌دهد.</li>
+                <li><strong>واقعیت ایران:</strong> قانون ایران خشونت خانگی را به عنوان جرم مستقل به رسمیت نمی‌شناسد. داشتن شرط مکتوب در عقدنامه می‌تواند تنها پشتوانه حقوقی شما باشد.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿وَلَا تُمْسِكُوهُنَّ ضِرَارًا لِّتَعْتَدُوا﴾</span>
+                «آنان را برای آزار رساندن نگه ندارید.»
+                <cite>سوره بقره، آیه ۲۳۱</cite>
+              </blockquote>
+              <blockquote class="quran-block">«خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ»<cite>بهترین شما کسی است که با اهل خود بهتر رفتار کند. — ترمذی، صحیح</cite></blockquote>
+            </div>
+            <div class="acc-section">
+              <p style="color:var(--rose);font-weight:700;font-size:.93rem;">🆘 اگر الآن در خطر هستید، به قسمت «کمک بگیرید» در پایین صفحه مراجعه کنید.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-8" id="acc-btn-8" onclick="toggleAccordion(this,'acc-body-8')">
+            <span class="acc-icon" aria-hidden="true">🌙</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">شرط هشتم</span>
+              <span class="acc-title">مهریه عادل و فوری</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-8" role="region" aria-labelledby="acc-btn-8">
+            <div class="acc-section">
+              <h4>معنای این شرط چیست؟</h4>
+              <p>مهریه حق شماست — هدیه‌ای از شوهر که منحصراً به شما تعلق دارد. مبلغ و زمان پرداخت آن را در عقدنامه مشخص کنید.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چطور از شما محافظت می‌کند؟</h4>
+              <ul>
+                <li>مهریه حق شماست و قابل برگشت نیست.</li>
+                <li>در ایران، مهریه یکی از ابزارهای قانونی مهم برای زنان در موقع طلاق است.</li>
+                <li>مهریه نقد (حال) از مهریه مؤجل (ذمه) امن‌تر است.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿وَآتُوا النِّسَاءَ صَدُقَاتِهِنَّ نِحْلَةً﴾</span>
+                «و مهریه زنان را با رضایت به ایشان بدهید.»
+                <cite>سوره نساء، آیه ۴</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLE CLAUSES -->
+  <section id="example-clauses" class="page-section" aria-labelledby="clauses-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">نمونه متن‌های حقوقی</span>
+      <h2 class="section-title" id="clauses-heading">نمونه شروط عقدنامه</h2>
+      <p class="section-subtitle">این نمونه متن‌ها را می‌توانید به عاقد، وکیل، یا دفتر ثبت ازدواج نشان دهید. همیشه از یک وکیل خانواده کمک بگیرید.</p>
+
+      <div class="clause-box" aria-label="نمونه شرط تک‌همسری">
+        <h3>💍 شرط عدم ازدواج مجدد</h3>
+        <div class="clause-wording" role="note">
+          «زوج متعهد می‌شود که در طول زندگی مشترک، بدون اخذ رضایت کتبی زوجه، اقدام به ازدواج مجدد ننماید. در صورت نقض این شرط، زوجه دارای وکالت بلاعزل برای ثبت طلاق خواهد بود.»
+        </div>
+        <p class="clause-note">این شرط باید قبل از اجرای صیغه عقد در سند قید شود.</p>
+      </div>
+
+      <div class="clause-box" aria-label="نمونه شرط وکالت طلاق">
+        <h3>⚖️ وکالت بلاعزل در طلاق</h3>
+        <div class="clause-wording" role="note">
+          «زوج به موجب این سند، به زوجه وکالت بلاعزل با حق توکیل به غیر اعطاء می‌نماید تا در صورت وقوع هریک از موارد ذیل، نسبت به ثبت طلاق اقدام نماید: [موارد را مشخص کنید — مثلاً: ازدواج مجدد بدون رضایت، ترک انفاق بیش از ۶ ماه، هر گونه خشونت جسمی یا روانی، غیبت بیش از ۶ ماه بدون عذر].»
+        </div>
+        <p class="clause-note">موارد را دقیق بنویسید. از یک وکیل متخصص امور خانواده کمک بگیرید.</p>
+      </div>
+
+      <div class="clause-box" aria-label="نمونه شرط اشتغال">
+        <h3>💼 حق اشتغال</h3>
+        <div class="clause-wording" role="note">
+          «زوج متعهد می‌شود که مانع اشتغال زوجه در شغل حلال مورد نظر وی نگردد و رضایت خود را در این خصوص در عقدنامه اعلام می‌نماید.»
+        </div>
+        <p class="clause-note">در قانون مدنی ایران، بدون این شرط، شوهر می‌تواند از کار زن جلوگیری کند.</p>
+      </div>
+
+      <div class="clause-box" aria-label="نمونه شرط مسکن مستقل">
+        <h3>🏡 مسکن مستقل</h3>
+        <div class="clause-wording" role="note">
+          «زوج متعهد می‌شود که محل سکونت مستقل و جداگانه‌ای برای زوجه فراهم نماید و زوجه را ملزم به سکونت در منزل خانواده زوج ننماید، مگر با رضایت آزادانه و کتبی زوجه.»
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REMINDER -->
+  <section id="reminder" class="page-section" aria-labelledby="reminder-heading">
+    <div class="container">
+      <div class="reminder-banner" role="note" aria-labelledby="reminder-heading">
+        <div class="reminder-icon" aria-hidden="true">📌</div>
+        <h2 id="reminder-heading">نکات مهمی که باید به یاد داشته باشید</h2>
+        <p>این راهنما اطلاعات آموزشی اسلامی ارائه می‌دهد. این مشاوره حقوقی نیست. قوانین ازدواج در هر کشور متفاوت است.</p>
+        <ul class="reminder-list" aria-label="یادآوری‌های مهم">
+          <li><span class="li-icon" aria-hidden="true">🇮🇷</span><span>در ایران: دادگاه‌های خانواده به امور نکاح و طلاق رسیدگی می‌کنند. داشتن شرط مکتوب در عقدنامه مهم‌ترین ابزار حمایت از شما است.</span></li>
+          <li><span class="li-icon" aria-hidden="true">👩‍⚖️</span><span>اگر امکان دارد با وکیل متخصص امور خانواده مشورت کنید. در سازمان‌های دیاسپورا و خارج از ایران، وکلا با قوانین ایران آشنا هستند.</span></li>
+          <li><span class="li-icon" aria-hidden="true">📝</span><span>همه شروط را قبل از اجرای صیغه عقد بنویسید. شروط مکتوب و امضا شده بسیار قابل استناد‌تر هستند.</span></li>
+          <li><span class="li-icon" aria-hidden="true">🕌</span><span>با عاقد یا عالم دینی آگاه و منصفی مشورت کنید که به حقوق زن در اسلام احترام می‌گذارد.</span></li>
+          <li><span class="li-icon" aria-hidden="true">💬</span><span>درخواست قرارداد عادل نشانه بی‌احترامی نیست — پیروی از امر قرآن به وفای به پیمان است.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="page-section" aria-labelledby="resources-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">کمک بگیرید</span>
+      <h2 class="section-title" id="resources-heading">منابع و حمایت — ایران و دیاسپورا</h2>
+      <p class="section-subtitle">تنها نیستید. سازمان‌هایی هستند که می‌توانند با محرمانه‌ترین شیوه به شما کمک کنند.</p>
+
+      <div class="legal-note" role="note">
+        <span class="ln-icon" aria-hidden="true">🔒</span>
+        <p><strong>اگر در ایران هستید:</strong> دسترسی به برخی سایت‌ها ممکن است نیاز به VPN داشته باشد. از مرورگر خصوصی استفاده کنید. لینک‌های زیر عمدتاً برای دیاسپورای ایرانی در خارج از کشور هستند.</p>
+      </div>
+
+      <div class="resource-grid" role="list">
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🇬🇧</div>
+          <h3>IKWRO — بریتانیا</h3>
+          <p>سازمان حقوق زنان ایرانی و کردی — خدمات مشاوره، پشتیبانی و پناهگاه برای زنان ایرانی در بریتانیا. کارکنان فارسی‌زبان دارند.</p>
+          <a href="https://ikwro.org.uk" class="org-link" target="_blank" rel="noopener noreferrer" aria-label="سایت IKWRO (باز می‌شود در تب جدید)">IKWRO ↗</a>
+          <div class="emergency-strip" role="alert">📞 دفتر: ۰۲۰۷ ۹۲۰ ۶۴۶۰ (دوشنبه تا جمعه)
+اورژانس فارسی/دری: ۰۷۸۴۶ ۳۱۰۱۵۷ (۲۴ ساعته)</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🌍</div>
+          <h3>مرکز حقوق بشر ایران (CHRI)</h3>
+          <p>اطلاعات و منابع در مورد حقوق زنان در ایران، به زبان فارسی و انگلیسی. اخبار و تحلیل‌های مستقل و بدون وابستگی دولتی.</p>
+          <a href="https://iranhumanrights.org" class="org-link" target="_blank" rel="noopener noreferrer">CHRI ↗</a>
+          <p style="font-size:.8rem;color:var(--text-muted);margin-top:.4rem;font-style:italic;">اینستاگرام فارسی: @humanrightsiniran</p>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🤝</div>
+          <h3>مساواه (Musawah)</h3>
+          <p>جنبش جهانی برای برابری در قانون خانواده مسلمانان. منابع آموزشی درباره حقوق زنان در فقه اسلامی، با رویکردی تخصصی.</p>
+          <a href="https://www.musawah.org" class="org-link" target="_blank" rel="noopener noreferrer">Musawah ↗</a>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🇩🇪</div>
+          <h3>آلمان — دیاسپورای ایرانی</h3>
+          <p>سازمان‌های ایرانی در آلمان مشاوره حقوقی و روانشناسی به فارسی ارائه می‌دهند. با مراکز مشاوره زنان (Frauenberatungsstelle) در شهر خود تماس بگیرید و خدمات مترجم فارسی بخواهید.</p>
+          <div class="emergency-strip" role="alert">🚨 خط اضطراری آلمان: ۰۸۰۰ ۱۱۱ ۰ ۵۵۵ (رایگان، ۲۴ساعته)</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🇺🇸</div>
+          <h3>آمریکای شمالی — دیاسپورا</h3>
+          <p>خط ملی خشونت خانگی آمریکا خدمات مترجم فارسی دارد. همچنین می‌توانید با مراکز ایرانی-آمریکایی در شهر خود تماس بگیرید.</p>
+          <div class="emergency-strip" role="alert">🚨 خط ملی خشونت خانگی: ۱-۸۰۰-۷۹۹-۷۲۳۳ (مترجم فارسی موجود است)</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🔐</div>
+          <h3>VPN و دسترسی امن — ایران</h3>
+          <p>اگر در ایران هستید، برای دسترسی به منابع اینترنتی مفید ممکن است به VPN نیاز داشته باشید. ProtonVPN رایگان است و اطلاعات شما را ثبت نمی‌کند.</p>
+          <a href="https://protonvpn.com/free-vpn" class="org-link" target="_blank" rel="noopener noreferrer">ProtonVPN رایگان ↗</a>
+          <p style="font-size:.8rem;color:var(--text-muted);margin-top:.4rem;font-style:italic;">همچنین: مرورگر Tor برای ناشناس ماندن کامل.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY & SAFETY -->
+  <section id="privacy-safety" class="page-section" aria-labelledby="safety-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">امنیت آنلاین</span>
+      <h2 class="section-title" id="safety-heading">حریم خصوصی و امنیت</h2>
+      <p class="section-subtitle">اگر نگران هستید کسی ببیند این صفحه را باز کرده‌اید، این مراحل ساده را دنبال کنید. امنیت شما اول است.</p>
+      <div class="safety-grid" role="list">
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🚪</div>
+          <h3>خروج سریع</h3>
+          <p>دکمه قرمز <strong>«خروج سریع»</strong> بالای صفحه شما را فوراً به گوگل می‌برد. همچنین می‌توانید دو بار سریع کلید <kbd>Escape</kbd> را بفشارید.</p>
+        </div>
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🕵️</div>
+          <h3>مرور خصوصی (Incognito)</h3>
+          <p>در حالت مرور خصوصی، تاریخچه مرورگر ذخیره نمی‌شود.</p>
+          <details class="browser-steps">
+            <summary>چطور پنجره خصوصی باز کنم؟</summary>
+            <ol>
+              <li><strong>Chrome / Edge:</strong> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></li>
+              <li><strong>Firefox:</strong> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></li>
+              <li><strong>Safari (iPhone):</strong> آیکون تب‌ها → «خصوصی» → «+»</li>
+              <li><strong>Chrome (اندروید):</strong> سه نقطه → «تب ناشناس جدید»</li>
+            </ol>
+          </details>
+        </div>
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🗑️</div>
+          <h3>پاک کردن تاریخچه مرورگر</h3>
+          <details class="browser-steps">
+            <summary>چطور تاریخچه را پاک کنم؟</summary>
+            <ol>
+              <li><strong>Chrome:</strong> <kbd>Ctrl</kbd>+<kbd>H</kbd> → این صفحه را پیدا کنید → سه نقطه → «حذف»</li>
+              <li><strong>اندروید:</strong> سه نقطه → تاریخچه → نگه داشتن → حذف</li>
+              <li><strong>Safari (iPhone):</strong> تنظیمات → Safari → «پاک کردن تاریخچه»</li>
+            </ol>
+          </details>
+        </div>
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🌐</div>
+          <h3>استفاده از VPN — ایران</h3>
+          <p>اگر در ایران هستید و نیاز به دسترسی امن دارید، از VPN استفاده کنید. ProtonVPN رایگان است. مرورگر Tor ناشناسی کامل‌تری فراهم می‌کند.</p>
+          <a href="https://protonvpn.com" class="org-link" target="_blank" rel="noopener noreferrer">ProtonVPN ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <span class="footer-ornament" aria-hidden="true">☽ ✦ ☽</span>
+  <p><strong>«و با آنان به شایستگی زندگی کنید.» — سوره نساء، آیه ۱۹</strong></p>
+  <p style="margin-top:.8rem;">این صفحه فقط برای اهداف آموزشی اسلامی است. این مشاوره حقوقی نیست.<br />لطفاً برای وضعیت شخصی خود از متخصصان حقوقی و دینی راهنمایی بگیرید.</p>
+  <p style="margin-top:.6rem;font-size:.78rem;opacity:.6;">همه ترجمه‌های قرآن کریم تقریبی برای سهولت فهم هستند. برای مطالعه عمیق‌تر به تفسیر مراجعه کنید.</p>
+</footer>
+
+<script>
+  function quickExit(){try{window.history.replaceState(null,'','https://www.google.com');}catch(e){}window.location.replace('https://www.google.com');}
+  var escTaps=0;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){escTaps++;if(escTaps>=2)quickExit();setTimeout(function(){escTaps=0;},800);}
+  });
+  function toggleAccordion(btn,bodyId){
+    var body=document.getElementById(bodyId);
+    var isOpen=btn.getAttribute('aria-expanded')==='true';
+    document.querySelectorAll('.accordion-trigger').forEach(function(b){b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.accordion-body').forEach(function(b){b.classList.remove('is-open');});
+    if(!isOpen){btn.setAttribute('aria-expanded','true');body.classList.add('is-open');setTimeout(function(){body.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
+  }
+  function handleTTS(){
+    if('speechSynthesis' in window){
+      if(window.speechSynthesis.speaking){window.speechSynthesis.cancel();document.getElementById('tts-btn').querySelector('span:last-child').textContent='پخش صدا';return;}
+      var content=document.getElementById('main-content').innerText;
+      var utterance=new SpeechSynthesisUtterance(content.substring(0,5000));
+      utterance.rate=0.85; utterance.lang='fa-IR';
+      utterance.onend=function(){document.getElementById('tts-btn').querySelector('span:last-child').textContent='پخش صدا';};
+      window.speechSynthesis.speak(utterance);
+      document.getElementById('tts-btn').querySelector('span:last-child').textContent='توقف';
+    }else{alert('مرورگر شما از این قابلیت پشتیبانی نمی‌کند. لطفاً Google Chrome را امتحان کنید.');}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn){
+      btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}});
+    });
+  });
+</script>
+</body>
+</html>

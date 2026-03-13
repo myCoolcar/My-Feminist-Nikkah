@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>مافی خۆت لە عەقدی نیکاحدا بناسە | ڕێنمای عەقدنامەی ئیسلامی</title>
+  <meta name="description" content="ڕێنمایەکی تایبەت بۆ ژنانی موسولمان دەربارەی مافەکانیان لە عەقدنامەی نیکاحدا. دروستکراوە بۆ ژنانی کوردستان و دیاسپۆرای کورد." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Vazirmatn works well for Sorani Kurdish (Arabic script); Amiri for Quranic Arabic -->
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --teal-deep:#1a5c5a; --teal-mid:#237a78; --teal-light:#d4ecea;
+      --gold:#b8860b; --gold-light:#f5e6b8; --gold-pale:#fdf8ec;
+      --ivory:#faf8f4; --cream:#f4f0e8; --text-dark:#1c1c1c;
+      --text-body:#2e3530; --text-muted:#5a6360; --rose:#c0574a;
+      --white:#ffffff;
+      --shadow-sm:0 2px 8px rgba(26,92,90,.10);
+      --shadow-md:0 4px 20px rgba(26,92,90,.14);
+      --radius-sm:8px; --radius-md:14px; --radius-lg:22px;
+      --font-display:'Vazirmatn',sans-serif;
+      --font-body:'Vazirmatn',sans-serif;
+    }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; font-size:18px; }
+    body { font-family:var(--font-body); font-size:1rem; line-height:2; color:var(--text-body); background:var(--ivory); -webkit-font-smoothing:antialiased; }
+    a { color:var(--teal-deep); text-decoration:underline; }
+    a:hover,a:focus { color:var(--teal-mid); }
+    :focus-visible { outline:3px solid var(--gold); outline-offset:3px; border-radius:4px; }
+    .container { width:100%; max-width:900px; margin:0 auto; padding:0 1.2rem; }
+    .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; }
+
+    .arabic-quran {
+      font-family:'Amiri',serif; font-size:1.5rem; direction:rtl;
+      text-align:center; color:var(--teal-deep); line-height:2.2;
+      display:block; margin-bottom:.4rem;
+    }
+    .section-title { font-size:1.85rem; font-weight:800; color:var(--teal-deep); line-height:1.45; margin-bottom:.6rem; }
+    .section-subtitle { font-size:.97rem; color:var(--text-muted); margin-bottom:1.8rem; }
+    .quran-block { background:var(--gold-pale); border-right:5px solid var(--gold); border-left:none; border-radius:var(--radius-sm) 0 0 var(--radius-sm); padding:1rem 1.4rem; margin:1.2rem 0; font-size:.97rem; color:var(--text-body); line-height:2; }
+    .quran-block cite { display:block; font-size:.8rem; font-style:normal; font-weight:700; color:var(--gold); margin-top:.4rem; }
+    .badge { display:inline-block; background:var(--teal-light); color:var(--teal-deep); font-size:.76rem; font-weight:700; padding:.2rem .8rem; border-radius:20px; margin-bottom:.6rem; }
+    .ornament { display:flex; align-items:center; justify-content:center; gap:.6rem; margin:0 auto 1.4rem; color:var(--gold); font-size:1.4rem; opacity:.7; }
+    .ornament::before,.ornament::after { content:''; flex:1; height:1px; background:linear-gradient(to right,transparent,var(--gold),transparent); max-width:120px; }
+
+    /* TOP BAR */
+    #top-bar { background:var(--teal-deep); color:var(--white); padding:.5rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:.8rem; flex-wrap:wrap; position:sticky; top:0; z-index:1000; box-shadow:0 2px 8px rgba(0,0,0,.2); }
+    .top-bar-tools { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; }
+    .tts-btn { display:flex; align-items:center; gap:.35rem; background:rgba(255,255,255,.12); color:var(--white); border:1.5px solid rgba(255,255,255,.3); border-radius:20px; padding:.25rem .9rem; font-size:.85rem; font-weight:600; font-family:var(--font-body); cursor:pointer; transition:background .2s; }
+    .tts-btn:hover { background:rgba(255,255,255,.2); }
+    #quick-exit { background:var(--rose); color:var(--white); border:none; border-radius:20px; padding:.32rem 1.1rem; font-size:.85rem; font-weight:700; font-family:var(--font-body); cursor:pointer; display:flex; align-items:center; gap:.35rem; transition:background .15s,transform .1s; white-space:nowrap; }
+    #quick-exit:hover { background:#a0443a; transform:scale(1.04); }
+    .lang-switcher { display:flex; align-items:center; gap:.4rem; }
+    .lang-switcher a { color:rgba(255,255,255,.7); font-size:.76rem; text-decoration:none; padding:.2rem .5rem; border-radius:10px; border:1px solid rgba(255,255,255,.2); transition:background .2s; font-family:'Vazirmatn',sans-serif; }
+    .lang-switcher a:hover,.lang-switcher a.active { background:rgba(255,255,255,.2); color:#fff; }
+
+    /* SKIP */
+    .skip-link { position:absolute; top:-60px; right:0; background:var(--gold); color:var(--text-dark); padding:.5rem 1rem; font-weight:700; z-index:9999; border-radius:0 0 0 var(--radius-sm); transition:top .2s; }
+    .skip-link:focus { top:0; }
+
+    /* DIALECT NOTE BANNER */
+    #dialect-note { background:linear-gradient(90deg,var(--teal-deep),#0f3e3d); color:rgba(255,255,255,.9); padding:.6rem 1.2rem; text-align:center; font-size:.84rem; }
+    #dialect-note strong { color:var(--gold-light); }
+
+    /* NAV */
+    nav#main-nav { background:var(--cream); border-bottom:1px solid rgba(26,92,90,.1); padding:0 1rem; overflow-x:auto; }
+    .nav-inner { max-width:900px; margin:0 auto; display:flex; gap:0; white-space:nowrap; }
+    .nav-inner a { display:inline-block; padding:.75rem .85rem; font-size:.85rem; font-weight:700; color:var(--teal-deep); text-decoration:none; border-bottom:3px solid transparent; transition:border-color .2s,color .2s; }
+    .nav-inner a:hover { color:var(--gold); border-bottom-color:var(--gold); }
+
+    /* HERO */
+    #hero { background:linear-gradient(135deg,var(--teal-deep) 0%,#0f3e3d 100%); color:var(--white); padding:4rem 1.2rem 3.5rem; position:relative; overflow:hidden; text-align:center; }
+    #hero::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle at 80% 50%,rgba(184,134,11,.08) 0%,transparent 60%),radial-gradient(circle at 20% 20%,rgba(212,236,234,.08) 0%,transparent 50%); pointer-events:none; }
+    .hero-inner { position:relative; z-index:1; max-width:700px; margin:0 auto; }
+    .hero-eyebrow { display:inline-block; background:rgba(184,134,11,.25); border:1px solid rgba(184,134,11,.5); color:#f5e6b8; font-size:.82rem; font-weight:700; padding:.3rem 1rem; border-radius:20px; margin-bottom:1.2rem; }
+    #hero h1 { font-size:clamp(1.9rem,6vw,3rem); font-weight:800; line-height:1.45; color:var(--white); margin-bottom:.9rem; }
+    #hero h1 span { color:#f5e6b8; }
+    #hero .hero-sub { font-size:clamp(.93rem,2.5vw,1.12rem); color:rgba(255,255,255,.85); margin-bottom:1.6rem; font-weight:500; }
+    .hero-verse { background:rgba(255,255,255,.08); border:1px solid rgba(245,230,184,.3); border-radius:var(--radius-md); padding:1.2rem 1.6rem; margin:1.4rem auto 1.6rem; max-width:580px; }
+    .hero-verse .arabic-large { font-family:'Amiri',serif; font-size:1.65rem; color:#f5e6b8; direction:rtl; display:block; line-height:2.2; margin-bottom:.4rem; }
+    .hero-verse .ku-trans { font-size:.96rem; color:rgba(255,255,255,.85); display:block; line-height:1.9; }
+    .hero-verse cite { display:block; font-size:.78rem; font-style:normal; font-weight:700; color:rgba(245,230,184,.7); margin-top:.4rem; }
+    .hero-intro { font-size:.96rem; color:rgba(255,255,255,.8); max-width:580px; margin:0 auto; line-height:2; }
+    .hero-scroll { display:inline-flex; align-items:center; gap:.5rem; margin-top:1.8rem; background:rgba(255,255,255,.1); color:#f5e6b8; padding:.5rem 1.4rem; border-radius:30px; font-size:.9rem; font-weight:700; text-decoration:none; border:1px solid rgba(245,230,184,.3); transition:background .2s; }
+    .hero-scroll:hover { background:rgba(255,255,255,.18); color:#fff; }
+
+    /* SECTIONS */
+    .page-section { padding:3.5rem 0; }
+    .page-section:nth-of-type(even) { background:var(--cream); }
+
+    /* INFO CARDS */
+    .info-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+    .info-card { background:var(--white); border-radius:var(--radius-md); padding:1.4rem 1.2rem; box-shadow:var(--shadow-sm); border-top:4px solid var(--teal-mid); display:flex; flex-direction:column; gap:.5rem; }
+    .info-card .card-icon { font-size:2rem; line-height:1; margin-bottom:.3rem; }
+    .info-card h3 { font-size:1.05rem; font-weight:800; color:var(--teal-deep); }
+    .info-card p { font-size:.93rem; color:var(--text-body); line-height:1.95; }
+
+    /* CONTEXT NOTE */
+    .context-note { background:linear-gradient(135deg,#fff3cd,#fff8e1); border:2px solid #e6a817; border-radius:var(--radius-md); padding:1.2rem 1.5rem; margin:1.5rem 0; display:flex; gap:.8rem; align-items:flex-start; }
+    .context-note .cn-icon { font-size:1.8rem; flex-shrink:0; }
+    .context-note p { font-size:.9rem; color:#4a3200; line-height:1.95; }
+    .context-note strong { color:#7a4e00; }
+
+    /* REGION TABS */
+    .region-toggle { display:flex; gap:.5rem; margin-bottom:1.5rem; background:var(--cream); border-radius:30px; padding:.3rem; width:fit-content; flex-wrap:wrap; }
+    .rtab { background:none; border:none; padding:.45rem 1rem; border-radius:24px; font-family:var(--font-body); font-size:.86rem; font-weight:700; cursor:pointer; color:var(--text-muted); transition:all .2s; }
+    .rtab.active { background:var(--teal-deep); color:var(--white); }
+    .rtab:hover:not(.active) { background:var(--teal-light); color:var(--teal-deep); }
+    .region-panel { display:none; }
+    .region-panel.active { display:block; animation:slideDown .2s ease; }
+
+    /* ACCORDION */
+    .accordion-list { display:flex; flex-direction:column; gap:.8rem; margin-top:1.8rem; }
+    .accordion-item { background:var(--white); border-radius:var(--radius-md); box-shadow:var(--shadow-sm); overflow:hidden; border:1.5px solid transparent; transition:border-color .2s,box-shadow .2s; }
+    .accordion-item:hover { box-shadow:var(--shadow-md); border-color:var(--teal-light); }
+    .accordion-trigger { width:100%; background:none; border:none; cursor:pointer; padding:1.1rem 1.3rem; display:flex; align-items:center; gap:.8rem; text-align:right; font-family:var(--font-body); transition:background .15s; }
+    .accordion-trigger:hover,.accordion-trigger[aria-expanded="true"] { background:var(--teal-light); }
+    .acc-icon { font-size:1.7rem; flex-shrink:0; width:2.2rem; text-align:center; }
+    .acc-title-wrap { flex:1; text-align:right; }
+    .acc-label { font-size:.72rem; font-weight:700; color:var(--teal-mid); display:block; margin-bottom:.1rem; }
+    .acc-title { font-size:1rem; font-weight:800; color:var(--teal-deep); display:block; line-height:1.55; }
+    .acc-chevron { font-size:1rem; color:var(--teal-mid); transition:transform .25s ease; flex-shrink:0; }
+    .accordion-trigger[aria-expanded="true"] .acc-chevron { transform:rotate(-180deg); }
+    .accordion-body { display:none; padding:0 1.3rem 1.3rem; border-top:1px solid var(--teal-light); }
+    .accordion-body.is-open { display:block; animation:slideDown .2s ease; }
+    @keyframes slideDown { from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);} }
+    .acc-section { margin-top:1rem; }
+    .acc-section h4 { font-size:.78rem; font-weight:700; letter-spacing:.03em; color:var(--gold); margin-bottom:.3rem; }
+    .acc-section p,.acc-section ul { font-size:.93rem; color:var(--text-body); line-height:1.95; }
+    .acc-section ul { padding-right:1.3rem; padding-left:0; }
+    .acc-section ul li { margin-bottom:.3rem; }
+    .ref-tag { display:inline-block; background:var(--gold-light); color:var(--gold); font-size:.75rem; font-weight:700; border-radius:6px; padding:.15rem .55rem; margin-top:.5rem; }
+
+    /* CLAUSE BOXES */
+    .clause-box { background:var(--white); border:2px dashed var(--teal-mid); border-radius:var(--radius-md); padding:1.4rem 1.6rem; margin-bottom:1.2rem; }
+    .clause-box h3 { font-size:1.02rem; font-weight:800; color:var(--teal-deep); margin-bottom:.6rem; }
+    .clause-wording { background:var(--teal-light); border-radius:var(--radius-sm); padding:.9rem 1.1rem; font-size:.95rem; color:var(--text-dark); line-height:2; border-right:4px solid var(--teal-mid); border-left:none; }
+    .clause-note { font-size:.82rem; color:var(--text-muted); margin-top:.6rem; font-style:italic; }
+
+    /* REMINDER */
+    .reminder-banner { background:linear-gradient(135deg,var(--gold-pale),#fef9ec); border:2px solid var(--gold-light); border-radius:var(--radius-lg); padding:2rem; text-align:center; }
+    .reminder-banner .reminder-icon { font-size:2.5rem; margin-bottom:.6rem; }
+    .reminder-banner h2 { font-size:1.65rem; font-weight:800; color:var(--teal-deep); margin-bottom:.8rem; }
+    .reminder-banner p { max-width:560px; margin:0 auto .8rem; font-size:.97rem; color:var(--text-body); }
+    .reminder-list { list-style:none; padding:0; text-align:right; max-width:520px; margin:1rem auto 0; display:flex; flex-direction:column; gap:.7rem; }
+    .reminder-list li { display:flex; align-items:flex-start; gap:.6rem; font-size:.95rem; color:var(--text-body); }
+    .reminder-list .li-icon { font-size:1.1rem; margin-top:.05rem; flex-shrink:0; }
+
+    /* RESOURCES */
+    .resource-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+    .resource-card { background:var(--white); border-radius:var(--radius-md); padding:1.4rem 1.3rem; box-shadow:var(--shadow-sm); border-bottom:4px solid var(--gold); display:flex; flex-direction:column; gap:.5rem; }
+    .resource-card .res-icon { font-size:2rem; margin-bottom:.2rem; }
+    .resource-card h3 { font-size:1.02rem; font-weight:800; color:var(--teal-deep); }
+    .resource-card p { font-size:.9rem; color:var(--text-muted); line-height:1.9; flex:1; }
+    .org-link { display:inline-flex; align-items:center; gap:.3rem; font-size:.82rem; font-weight:700; color:var(--teal-mid); background:var(--teal-light); padding:.2rem .65rem; border-radius:12px; text-decoration:none; margin:.2rem .2rem 0 0; transition:background .15s; }
+    .org-link:hover { background:var(--teal-deep); color:var(--white); }
+    .emergency-strip { background:linear-gradient(90deg,#c0574a,#a0443a); color:var(--white); border-radius:var(--radius-sm); padding:.6rem 1rem; display:flex; align-items:center; gap:.6rem; margin-top:.8rem; font-size:.85rem; font-weight:700; line-height:1.6; }
+
+    /* SAFETY */
+    .safety-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:1.2rem; margin-top:1.8rem; }
+    .safety-card { background:var(--white); border-radius:var(--radius-md); padding:1.4rem 1.2rem; box-shadow:var(--shadow-sm); border-top:4px solid var(--rose); }
+    .safety-card .s-icon { font-size:2rem; margin-bottom:.4rem; }
+    .safety-card h3 { font-size:1.02rem; font-weight:800; color:var(--teal-deep); margin-bottom:.5rem; }
+    .safety-card p,.safety-card ul,.safety-card ol { font-size:.9rem; color:var(--text-body); line-height:1.9; }
+    .safety-card ul,.safety-card ol { padding-right:1.2rem; padding-left:0; }
+    .safety-card li { margin-bottom:.3rem; }
+    .browser-steps { background:var(--cream); border-radius:var(--radius-sm); padding:.8rem 1rem; margin-top:.8rem; }
+    .browser-steps summary { font-weight:700; font-size:.84rem; color:var(--teal-deep); cursor:pointer; list-style:none; }
+    .browser-steps ol { margin-top:.6rem; padding-right:1.2rem; padding-left:0; }
+    .browser-steps ol li { font-size:.82rem; margin-bottom:.3rem; }
+
+    /* FOOTER */
+    footer { background:var(--teal-deep); color:rgba(255,255,255,.75); text-align:center; padding:2rem 1.2rem; font-size:.88rem; line-height:2; }
+    footer strong { color:#f5e6b8; }
+    footer .footer-ornament { font-size:1.5rem; margin-bottom:.8rem; display:block; opacity:.5; }
+
+    /* RESPONSIVE */
+    @media(max-width:600px){
+      html { font-size:16px; }
+      #top-bar { flex-direction:column; align-items:flex-start; gap:.6rem; padding:.6rem 1rem; }
+      #hero { padding:3rem 1rem 2.5rem; }
+      .hero-inner { text-align:right; }
+      .section-title { font-size:1.55rem; }
+      .accordion-trigger { padding:1rem; }
+      .accordion-body { padding:0 1rem 1rem; }
+      .reminder-banner { padding:1.4rem 1rem; }
+      .nav-inner a { padding:.6rem .6rem; font-size:.8rem; }
+      .region-toggle { gap:.35rem; }
+    }
+    @media(min-width:768px){ .page-section { padding:4.5rem 0; } }
+    @media print {
+      #top-bar,nav#main-nav,.hero-scroll,#quick-exit,#dialect-note { display:none!important; }
+      .accordion-body { display:block!important; }
+      .region-panel { display:block!important; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">بڕۆ بۆ ناوەڕۆکی سەرەکی</a>
+
+<!-- DIALECT NOTE -->
+<div id="dialect-note" role="note">
+  <strong>🗣️ زمان:</strong> ئەم پەڕەیە بە <strong>کوردیی سۆرانی</strong> نووسراوە. ئەگەر کوردیی کرمانجی یان باشووری کوردستان هەڵدەبژێریت، گۆڕانیت پێویستە.
+</div>
+
+<!-- TOP BAR -->
+<div id="top-bar" role="banner" aria-label="ئامرازەکانی دەستگەیشتن">
+  <div class="top-bar-tools">
+    <button class="tts-btn" id="tts-btn" aria-label="ئەم پەڕەیە بەدەنگ بخوێنەوە" onclick="handleTTS()">
+      <span aria-hidden="true">🔊</span>
+      <span>گوێ بگرە</span>
+    </button>
+    <div class="lang-switcher" aria-label="زمان هەڵبژێرە">
+      <a href="nikah-rights-ar.html" lang="ar">عربي</a>
+      <a href="nikah-rights-hi.html" lang="hi">हिन्दी</a>
+      <a href="nikah-rights-fa.html" lang="fa">فارسی</a>
+      <a href="nikah-rights-ku.html" class="active" lang="ckb">کوردی</a>
+      <a href="nikah-rights__1_.html" lang="en">English</a>
+    </div>
+  </div>
+  <button id="quick-exit" aria-label="وەرچووندنی خێرا — ئەم پەڕەیە فوری بەجێهێڵە" onclick="quickExit()">
+    <span aria-hidden="true">✕</span> وەرچووندنی خێرا
+  </button>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="main-nav" aria-label="بەشەکانی پەڕە">
+  <div class="nav-inner">
+    <a href="#hero">سەرەکی</a>
+    <a href="#why-matters">چیمایە گرنگە</a>
+    <a href="#local-law">یاسای هەرێم</a>
+    <a href="#your-rights">مافەکانت</a>
+    <a href="#example-clauses">نموونە مەرجەکان</a>
+    <a href="#reminder">یادەوەری گرنگ</a>
+    <a href="#resources">یارمەتی وەربگرە</a>
+    <a href="#privacy-safety">ئەمنیەت</a>
+  </div>
+</nav>
+
+<main id="main-content">
+
+  <!-- HERO -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+      <span class="hero-eyebrow" aria-hidden="true">ڕێنمای عەقدنامەی ئیسلامی</span>
+      <h1 id="hero-heading">مافەکانت لە<br /><span>مێژووی ئیسلامیدا بناسە</span></h1>
+      <p class="hero-sub">عەقدنامەی نیکاح دەتوانێت پاراستنت بکات. ئیسلام ئیجازەی داناتنی مەرج لە مێژوودا دەدات — بەڵکو پێی تشویق دەکات.</p>
+      <div class="hero-verse" aria-label="ئایەتی قورئانی">
+        <span class="arabic-large">﴿يَا أَيُّهَا الَّذِينَ آمَنُوا أَوْفُوا بِالْعُقُودِ﴾</span>
+        <span class="ku-trans">«ئەی ئەوانەی باوەڕتان هێناوە! پابەندی پەیمانەکانتان بن.»</span>
+        <cite>سورەی مائیدە، ئایەتی ١</cite>
+      </div>
+      <p class="hero-intro">
+        خودا ﷻ فەرمانی دادپەروەری، باشی و پابەندی بە پەیمان کردووە. نیکاح تەنها مراسیمێک نییە — قەرەبووییەکی یاسایی و ئایینییە. مافت هەیە مەرجی تێدا دابنێیت کە پاراستنت بکات. ئەم ڕێنماییە مافەکانت بە زمانی سادە، لە سەر قورئانی کەریم و حەدیثی پشووپێدراو ڕووندەکاتەوە.
+      </p>
+      <a href="#why-matters" class="hero-scroll" aria-label="بەردەوام بە خوێندن">
+        <span aria-hidden="true">↓</span> خوێندن دەستپێبکە
+      </a>
+    </div>
+  </section>
+
+  <!-- WHY NIKAH MATTERS -->
+  <section id="why-matters" class="page-section" aria-labelledby="why-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">ناساندنی عەقدنامە</span>
+      <h2 class="section-title" id="why-heading">چیمایە عەقدنامە گرنگە؟</h2>
+      <p class="section-subtitle">نیکاح تەنها مراسیمێک نییە. قەرەبووییەکی گرفتدارە کە مافو ئەرکی هەردوو هاوسەرەکان تێدایە.</p>
+      <blockquote class="quran-block" aria-label="ئایەتی قورئانی دەربارەی ژیانی زاواژووی">
+        <span class="arabic-quran">﴿وَعَاشِرُوهُنَّ بِالْمَعْرُوفِ﴾</span>
+        «و بە باشی لەگەڵیان ژیان بکەن.»
+        <cite>سورەی نساء، ئایەتی ١٩</cite>
+      </blockquote>
+      <div class="info-grid" role="list">
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">📜</div>
+          <h3>عەقدنامەی نیکاح چییە؟</h3>
+          <p>نیکاح قەرەبووی مێژووی ئیسلامییە. ڕێکەوتنامەیەکی یاسایی و ئایینییە نێوان دوو کەس کە پێویستە ئازادانە — بەبێ زۆرکاری — ئەنجام بدرێت و شاید هەبێت.</p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">✅</div>
+          <h3>دەتوانم مەرج دابنێم؟</h3>
+          <p>بەڵێ. زانایانی ئیسلامی لەسەر ئەوەدا یەکدەنگن کە ژن دەتوانێت مەرجی مەشرووع لە عەقدنامەی خۆیدا دابنێت. پێغەمبەر ﷺ فەرموویەتی: «المسلمون عند شروطهم.»</p>
+        </div>
+        <div class="info-card" role="listitem">
+          <div class="card-icon" aria-hidden="true">💡</div>
+          <h3>بۆ ئێستا زۆر ژن ئەم مافیان نازانن؟</h3>
+          <p>زۆرێک لە ژنانی موسوڵمان لەم مافەوە ئاگادار نەکراونەتەوە. نەریت و کلتووری تایبەت و پاڵنەرەکانی خوێنکردنی مێژوو دژوارییەکان دروست دەکەن. ئەم ڕێنماییە هەیەت تا ئەمە بگۆڕێت.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCAL LAW — KRI / DIASPORA TABS -->
+  <section id="local-law" class="page-section" aria-labelledby="law-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">چوارچێوەی یاسایی</span>
+      <h2 class="section-title" id="law-heading">یاسا لە ناوچەکانی کورد</h2>
+      <p class="section-subtitle">ئەم مافانەی ئیسلامی لە هەموو شوێنێک بەردەستن — بەڵام یاسای ناوخۆی هەرێمت بۆ باشتر ناسانێت.</p>
+
+      <div class="region-toggle" role="tablist" aria-label="هەرێمت هەڵبژێرە">
+        <button class="rtab active" role="tab" aria-selected="true" aria-controls="panel-kri" onclick="switchRegion('kri')">🇮🇶 هەرێمی کوردستانی عێراق</button>
+        <button class="rtab" role="tab" aria-selected="false" aria-controls="panel-tr" onclick="switchRegion('tr')">🇹🇷 کوردستانی تورکیا</button>
+        <button class="rtab" role="tab" aria-selected="false" aria-controls="panel-dia" onclick="switchRegion('dia')">🌍 دیاسپۆرا</button>
+      </div>
+
+      <!-- KRI -->
+      <div id="panel-kri" class="region-panel active" role="tabpanel">
+        <div class="info-grid" role="list">
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">⚖️</div>
+            <h3>یاسای ژمارە ٨ی ٢٠١١</h3>
+            <p>هەرێمی کوردستان یاسای بێهمپا لەباتی عێراقی گشتی بۆ مەنعکردنی توندوتیژی ماڵەوەیی دارای بووە. <strong>ئەم یاساییە توندوتیژیی جەستەیی، سێکسی، دەروونی و ئابووریی ناو خێزانی قەدەغە کردووە.</strong></p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">📞</div>
+            <h3>هێڵی ئەورژانسی ١١٩</h3>
+            <p>حکومەتی هەرێمی کوردستان هێڵی خۆرایی ٢٤ کاتژمێری ئەورژانسی ١١٩ بۆ توندوتیژی ماڵەوەیی و کێشەی خێزانی بەڕێوە دەبات. متخەصیص لە سەرووی یاسایی، کۆمەڵایەتی و دەروونییدا خەریکی کارن.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">🏛️</div>
+            <h3>دادگاکانی خێزان</h3>
+            <p>کێشەی نیکاح، تەلاق، خوڵع و حیزانەت لە دادگاکانی خێزاندا چارەسەر دەبێت. ژنان دەتوانن دادمەندیی خوای ئیسلامی داواکاری بکەن کە لەم حاڵاتادا تەلاقی ژن بەبێ پرداختنی مافی دیاریکراو ئیجازەی دەدات.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">📋</div>
+            <h3>تۆمارکردنی مێژوو</h3>
+            <p>دوای ئەنجامدانی نیکاح، مێژووت لە ئەندامانی حکومەتیی دادمەندانی ئایینی تۆمار بکە. مێژووی نەتۆمارکراو دژواریی یاسایی دروست دەکات. مەرجەکانی تۆمارکراو هێزی یاسایییان هەیە.</p>
+          </div>
+        </div>
+        <div class="context-note" role="note">
+          <span class="cn-icon" aria-hidden="true">⚠️</span>
+          <p><strong>ئاگاداری مهم:</strong> ڕاپۆرتی ئامنستی ئینتەرنەشینەڵ لە ٢٠٢٤دا دەرکرد کە لە کارپێکردنی یاسا کەموکووری گەورەی هەیە. داواکاری تەلاق و پارێزگاری پرۆسەیەکی درێژ و سەختە. مەرجی نووسراو لە عەقدنامە گرنگترین پارێزگاریتە. <strong>دەستت بەسەر یارمەتیدەرانی ئیجراییدا بگرە.</strong></p>
+        </div>
+      </div>
+
+      <!-- TURKEY -->
+      <div id="panel-tr" class="region-panel" role="tabpanel">
+        <div class="info-grid" role="list">
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">📋</div>
+            <h3>یاسای سیڤیل تورکیا</h3>
+            <p>لە تورکیا، تەنها مێژووی ئەفیشەل (سیڤیل) مافی یاساییت هەیە. مێژووی ئیمام بەتەنها بەسوود نییە. پێویستە هەردووکیت هەبێت: مێژووی ئیمامو مێژووی سیڤیل.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">🏛️</div>
+            <h3>دادگاکانی خێزانی تورکیا</h3>
+            <p>دادگاکانی خێزانی تورکیا (Aile Mahkemesi) توندوتیژی ماڵەوەیی و کێشەی تەلاق دابین دەکەن. یاسای ژمارە ٦٢٨٤ توندوتیژیی ماڵەوەیی قەدەغە کردووە.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">📞</div>
+            <h3>هێڵی یارمەتی تورکیا</h3>
+            <p>هێڵی ALO 183 خزمەتگوزارییەکی دادمەندانی کۆمەڵایەتیی و هێڵی یارمەتی ژنانی تورکیایە کە خۆرایی و ٢٤ کاتژمێری کار دەکات.</p>
+          </div>
+        </div>
+        <div class="context-note" role="note">
+          <span class="cn-icon" aria-hidden="true">💡</span>
+          <p><strong>ئاگاداری تورکیا:</strong> ئەگەر کوردیت کوردیی کرمانجی خوێندووەتەوە، خزمەتگوزارییەکانی پشتیوانیی تایبەت بۆ ژنانی کورد لە ئیستانبوڵ و شارە گەورەکانی دیکەی تورکیادا بیبینە. IKWRO لە بریتانیادا دەتوانێت مشاوەرەت بدات.</p>
+        </div>
+      </div>
+
+      <!-- DIASPORA -->
+      <div id="panel-dia" class="region-panel" role="tabpanel">
+        <div class="info-grid" role="list">
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">🇬🇧</div>
+            <h3>بریتانیا</h3>
+            <p>IKWRO و KMEWO هەردوو ئەرگانیزەیشنی تایبەت بۆ ژنانی کورد و ڕۆژهەڵاتی ناوەڕاستن لە بریتانیادا. خزمەتگوزارییان بە کوردی، عەرەبی، فارسی و ئینگلیزی بەردەستە.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">🇩🇪</div>
+            <h3>ئەڵمانیا</h3>
+            <p>هەژمارە زیاتری کوردەکانی ئەڵمانیا لە کۆلۆن، برەمەن و ئەسن دەژین. مەرکەزەکانی مشاوەرەی ژنان (Frauenberatungsstelle) مترجمی کوردی بەردەستن.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">🇸🇪</div>
+            <h3>سوید</h3>
+            <p>سوید کۆمەڵگەی گەورەی کوردی هەیە. تکایە بۆ Roks (خزمەتگوزارییەکی ئومەڵی تایبەت بۆ ژن) و یان مشاوەرەخانەی ژنانی ناوچەکەتدا بچۆ.</p>
+          </div>
+          <div class="info-card" role="listitem">
+            <div class="card-icon" aria-hidden="true">🌍</div>
+            <h3>کشوری دیکە</h3>
+            <p>UNHCR و UN Women هەردوو منابعی دیاسپۆراییەکانی گشتگیریان هەیە. ئەگەر لە کشوری دیکەدا دەژیت، سازمانانی ژنانی ناوخۆیت بگەڕێ.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- YOUR RIGHTS -->
+  <section id="your-rights" class="page-section" aria-labelledby="rights-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">پارێزگاریی شەرعیت</span>
+      <h2 class="section-title" id="rights-heading">مافە سەرەکییەکانی کە دەتوانیت لە عەقدنامەدا دابنێیت</h2>
+      <p class="section-subtitle">لەسەر هەر مافێک دەست بدە تا زیاتر بزانیت — مانایەکەی چییە، چۆن پاراستنت دەکات، و سەرچاوەی ئیسلامییەکەی لەکوێیە.</p>
+      <div class="accordion-list" role="list" aria-label="مافەکانی نیکاح — بەشی گەورەبووەکان">
+
+        <!-- 1 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-1" id="acc-btn-1" onclick="toggleAccordion(this,'acc-body-1')">
+            <span class="acc-icon" aria-hidden="true">💍</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی یەکەم</span>
+              <span class="acc-title">تەکەژنی — ژەنگیری دووەم بەبێ ڕەزامەندیت ممنووعە</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-1" role="region" aria-labelledby="acc-btn-1">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>دەتوانیت مەرج دابنێیت کە مێردەکەت بەبێ زانیاری و ڕەزامەندیی نووسراوی تۆ ژنی تر نەژنێت. ئەگەر شکستی هاتبێت، مافی تەلاقت هەیە.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>لە دەستپێکەوە ڕێکەوتنی ڕووناکت دروست دەکات.</li>
+                <li>ئەمەش چوورژنی حەرام ناکات — تەنها مافی هەڵبژاردنت پێدەدات.</li>
+                <li>ئارامی دەروونی، ئابووری و ژیانیت پاراست دەکات.</li>
+                <li>لە هەرێمی کوردستان: ئەم مەرجە دەتوانرێت لە عەقدنامەی تۆمارکراودا هاتبێت.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿وَلَن تَسْتَطِيعُوا أَن تَعْدِلُوا بَيْنَ النِّسَاءِ وَلَوْ حَرَصْتُمْ﴾</span>
+                «ئێوە هەرگیز ناتوانن نێوان ژنان بە دادپەروەری مامەڵە بکەن، تەنانەت ئەگەر سەختی بکەشن.»
+                <cite>سورەی نساء، ئایەتی ١٢٩</cite>
+              </blockquote>
+              <span class="ref-tag">📚 ئیبنی قودامە، المغنی؛ فقهی حەنبەلی</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-2" id="acc-btn-2" onclick="toggleAccordion(this,'acc-body-2')">
+            <span class="acc-icon" aria-hidden="true">⚖️</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی دووەم</span>
+              <span class="acc-title">مافی تەلاق بۆ ژن (تەفویضی تەلاق)</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-2" role="region" aria-labelledby="acc-btn-2">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>تەفویضی تەلاق تەواوی ئەوەیە کە مێردەکەت <strong>مافی تەلاقدانی خۆت بە تۆ دەدات</strong> ئەگەر مەرجی دیاریکراو پێکهاتبن. لە ئیسلامدا تەواو ڕەواییە.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>بەبێ ئەمەش تەنها مێرد مافی تەلاقی یەک‌لایەنەی هەیە.</li>
+                <li>بەبێ دادگا یان دانەدرینی مافی خوڵعت دەردەچیت.</li>
+                <li>تۆ خۆت مەرجەکانت دیاری دەکەیت: وەک ژنگیری تر، غیابی درێژ، بەجێهێشتنی نەفەقە، یان هەر جۆرێک لە توندوتیژی.</li>
+                <li>لە هەرێمی کوردستان: دادگاکانی خێزان ئەم مافە پێناسە دەکەن بەڵام پروسەی پێویستی یارمەتیدەرێکی یاساییە.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿فَإِمْسَاكٌ بِمَعْرُوفٍ أَوْ تَسْرِيحٌ بِإِحْسَانٍ﴾</span>
+                «یا بە باشی نیگەریان بگرن یان بە باشی ئازادیان بدەن.»
+                <cite>سورەی بەقەرە، ئایەتی ٢٢٩</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-3" id="acc-btn-3" onclick="toggleAccordion(this,'acc-body-3')">
+            <span class="acc-icon" aria-hidden="true">💰</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی سێیەم</span>
+              <span class="acc-title">سەربەخۆیی ئابووری</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-3" role="region" aria-labelledby="acc-btn-3">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>لە ئیسلامدا مافو پارەی ژن تەنها بۆ خۆتییە. مێرد پابەندی دابینکردنی نەفەقەیە. دەتوانیت ئەم مافە بە ڕوونی لە عەقدنامەدا دابنێیت.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>لە توندوتیژیی ئابووری و فشار بۆ واگوزارکردنی داهاتت پاراست دەکات.</li>
+                <li>مافی ئیسلامیت بۆ نیگەداشتنی دارایییەکانت پشتەوانی دەکات.</li>
+                <li>ئەرکی مێرد بۆ دابینکردنی نەفەقە دیاری دەکات.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿لِلرِّجَالِ نَصِيبٌ مِّمَّا اكْتَسَبُوا وَلِلنِّسَاءِ نَصِيبٌ مِّمَّا اكْتَسَبْنَ﴾</span>
+                «بۆ پیاوان بەشێك هەیە لەوەی کەسب کردوون و بۆ ژنان بەشێك لەوەی کەسب کردوون.»
+                <cite>سورەی نساء، ئایەتی ٣٢</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-4" id="acc-btn-4" onclick="toggleAccordion(this,'acc-body-4')">
+            <span class="acc-icon" aria-hidden="true">💼</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی چوارەم</span>
+              <span class="acc-title">مافی کار</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-4" role="region" aria-labelledby="acc-btn-4">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>دەتوانیت مەرج دابنێیت کە مێردەکەت ناگرێتەوە لە کارکردنت لە کارێکی حەلاڵدا.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>سەربەخۆیی ئابووری ئاسەواریت کەمتر دەکات.</li>
+                <li>لە جودابوونەوەی ئابووری کە جۆرێک لە توندوتیژییە پاراست دەکات.</li>
+                <li>خەدیجەی کەریم (رض) بازرگانێکی سەرکەوتوو بوو — خودی پێغەمبەر ﷺ لەبەرایدا کار دەکرد.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-5" id="acc-btn-5" onclick="toggleAccordion(this,'acc-body-5')">
+            <span class="acc-icon" aria-hidden="true">📚</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی پێنجەم</span>
+              <span class="acc-title">مافی خوێندن</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-5" role="region" aria-labelledby="acc-btn-5">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>دەتوانیت مەرج دابنێیت کە مێردەکەت ناگرێتەوە لە بەردەوامبوونی خوێندنت — چ ئایینی بێت چ دنیاوی.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>وەرگرتنی زانیاری بەرپرسیارییەتییەکی شەرعییە بۆ هەموو موسوڵمانێک — ژن و پیاو.</li>
+                <li>خوێندن لە تۆ، منداڵانت و کۆمەڵگەتدا پاراستنی دروست دەکات.</li>
+                <li>لەوانەپێچووی بکارهێنانی خوێندن وەک ئامرازی کۆنترۆڵ دەبەستێتەوە.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-6" id="acc-btn-6" onclick="toggleAccordion(this,'acc-body-6')">
+            <span class="acc-icon" aria-hidden="true">🏡</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی شەشەم</span>
+              <span class="acc-title">مانەوگەیی جودا لە خێزانی مێردەکە</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-6" role="region" aria-labelledby="acc-btn-6">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>مافت هەیە مێردەکەت مانەوگەیەکی سەربەخۆت دابینبکات — ناتوانرێت بزۆرکرێیت لەگەڵ خێزانی مێردەکەدا بژیت.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>زۆری زانایان ئەمە مافی بنەڕەتیی ژن لە ئیسلامدا دەزانن.</li>
+                <li>نهێنیت، رووناکیت و تەندروستیی دەروونیت پاراست دەکات.</li>
+                <li>ئەمەش مانای برینی پەیوەندی لەگەڵ خێزان نییە — تەنها مافی تایبەتیبوونت.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-7" id="acc-btn-7" onclick="toggleAccordion(this,'acc-body-7')">
+            <span class="acc-icon" aria-hidden="true">🛡️</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی حەوتەم</span>
+              <span class="acc-title">پاراستن لە توندوتیژی</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-7" role="region" aria-labelledby="acc-btn-7">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>هەر جۆرێک لە توندوتیژی — جەستەیی، دەروونی، زاراوەیی یان ئابووری — لە ئیسلامدا حەرامە. دەتوانیت مەرجێک دابنێیت کە ئەگەر هەر جۆرێک لە توندوتیژی ڕوویدا، مافی جودابوونت فوری هەبێت.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>توندوتیژی هەرگیز لە ئیسلامدا ڕەوا نییە — ئەمەش شکستهێنانی عەقدی مێژووییە.</li>
+                <li>ئەم مەرجە ڕێگای دەرچوونی ئاشکراتت دەدات کە لە پێشەوە لێکدراوەتەوە.</li>
+                <li>لە هەرێمی کوردستان: پشتگیری یاساتان هەیە تایبەت بۆ مەنعکردنی توندوتیژی ماڵەوەیی.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">«خَيْرُكُمْ خَيْرُكُمْ لِأَهْلِهِ»<cite>باشترین ئێوە کەسێکە بە خێزانەکەی خۆی باشترین مامەڵەی هەیە. — تیرمیزی، صحیح</cite></blockquote>
+            </div>
+            <div class="acc-section">
+              <p style="color:var(--rose);font-weight:700;font-size:.93rem;">🆘 ئەگەر ئێستا لە مەترسیدایت — هێڵی ئەورژانسی ١١٩ (هەرێمی کوردستان) یان ئەو خزمەتگوزاریانە لە خوارەوە بگرە.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="accordion-item" role="listitem">
+          <button class="accordion-trigger" aria-expanded="false" aria-controls="acc-body-8" id="acc-btn-8" onclick="toggleAccordion(this,'acc-body-8')">
+            <span class="acc-icon" aria-hidden="true">🌙</span>
+            <span class="acc-title-wrap">
+              <span class="acc-label">مەرجی هەشتەم</span>
+              <span class="acc-title">مەهرێکی دادپەروەر و خێرا</span>
+            </span>
+            <span class="acc-chevron" aria-hidden="true">▾</span>
+          </button>
+          <div class="accordion-body" id="acc-body-8" role="region" aria-labelledby="acc-btn-8">
+            <div class="acc-section">
+              <h4>مانای ئەم مەرجە چییە؟</h4>
+              <p>مەهر مافی تۆیە — درووشمێکە لە مێردەکەت بۆ تۆ کە تەنها بۆ خۆتە. بڕی و کاتی دانی لە عەقدنامەدا بە ڕوونی دیاری بکە.</p>
+            </div>
+            <div class="acc-section">
+              <h4>چۆن پاراستنت دەکات؟</h4>
+              <ul>
+                <li>مەهر مافی تۆیە و ناگەڕێتەوە.</li>
+                <li>مەهری نەقد (حال) لە مەهری دەمبەدەم (مؤجل) ئیمن‌ترە.</li>
+                <li>مەهرێکی گونجاو ئەگەر مێژووەکەت بەتالبوو ئارامی ئابووریت دابینبکات.</li>
+              </ul>
+            </div>
+            <div class="acc-section">
+              <blockquote class="quran-block">
+                <span class="arabic-quran">﴿وَآتُوا النِّسَاءَ صَدُقَاتِهِنَّ نِحْلَةً﴾</span>
+                «مەهری ژنان بە خۆشەویستی پێیان بدەن.»
+                <cite>سورەی نساء، ئایەتی ٤</cite>
+              </blockquote>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXAMPLE CLAUSES -->
+  <section id="example-clauses" class="page-section" aria-labelledby="clauses-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">نموونە دەقەکان</span>
+      <h2 class="section-title" id="clauses-heading">نموونە مەرجەکانی عەقدنامە</h2>
+      <p class="section-subtitle">ئەم نموونە دەقانە دەتوانرێن بۆ مۆڵای، دادمەند، یان پارێزەری خێزانەکەت نیشان بدەیت. هەمیشە لەگەڵ پسپۆڕێک کارت پێوە بکە.</p>
+
+      <div class="clause-box" aria-label="نموونە مەرجی تەکەژنی">
+        <h3>💍 مەرجی تەکەژنی</h3>
+        <div class="clause-wording" role="note">
+          «مێرد ئەوەی قبووڵ دەکات کە لە کاتی هەبوونی ئەم مێژوودا، بەبێ وەرگرتنی ڕەزامەندیی نووسراوی ژنەکەی، مێژووی تری ئەنجام نەدات. ئەگەر ئەم مەرجە شکستی هاتبێت، ژنەکە مافی تەلاقی هەبێت.»
+        </div>
+        <p class="clause-note">ئەم مەرجە پێویستە پێش ئەنجامدانی عەقدنامە تۆمار بکرێت.</p>
+      </div>
+
+      <div class="clause-box" aria-label="نموونە مەرجی تەفویضی تەلاق">
+        <h3>⚖️ تەفویضی تەلاق</h3>
+        <div class="clause-wording" role="note">
+          «مێرد بە ئەم سەنەدەوە مافی تەلاقی خۆی بە ژنەکەی دەگواستێت تا ئەگەر هەریەکێک لە حاڵەتە ئینجیرەکانی خوارەوە ڕوویدا، بتوانێت تەلاقەکەی تۆمار بکات: [مەرجەکان دیاری بکە — وەک: ژنگیری تر بەبێ ڕەزامەندی، بەجێهێشتنی نەفەقە بۆ ماوەیەکی زیاتر، هەر جۆرێک لە توندوتیژی].»
+        </div>
+        <p class="clause-note">مەرجەکان بە ڕوونی بنووسە. لەگەڵ پارێزەرێکی پسپۆڕ کار بکە.</p>
+      </div>
+
+      <div class="clause-box" aria-label="نموونە مەرجی مەهر">
+        <h3>🌙 مەهر</h3>
+        <div class="clause-wording" role="note">
+          «مەهری ڕاگەیێندراو [بڕ/وەسف]ە، کە لە کاتی ئەنجامدانی عەقدنامەدا بە تەواوی بە ژنەکە دەدرێت. ئەمەش تەنها موڵکی ژنەکەیە و لە هیچ حاڵەتێکدا ناکەمێت، ناگیرێت یان دەمێتەوە.»
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REMINDER -->
+  <section id="reminder" class="page-section" aria-labelledby="reminder-heading">
+    <div class="container">
+      <div class="reminder-banner" role="note" aria-labelledby="reminder-heading">
+        <div class="reminder-icon" aria-hidden="true">📌</div>
+        <h2 id="reminder-heading">یادەوەریی گرنگ</h2>
+        <p>ئەم ڕێنماییە زانیاری گشتیی ئیسلامی دابین دەکات. ئەمەش مشاوەرەی یاسایی نییە. یاسای مێژوو لە هەر وڵاتێک جیاوازە.</p>
+        <ul class="reminder-list" aria-label="یادەوەریی گرنگ">
+          <li><span class="li-icon" aria-hidden="true">🇮🇶</span><span>لە هەرێمی کوردستانی عێراق: دادگاکانی خێزان بۆ نیکاح و تەلاق بەڕێوەی دەبرێن. مەرجی نووسراو لە عەقدنامە پشتیوانیی باشترتە لە هیچ پروسەیەکی تر.</span></li>
+          <li><span class="li-icon" aria-hidden="true">👩‍⚖️</span><span>ئەگەر دەتوانیت، لەگەڵ پارێزەرێک مشاوەرە بکە کە لە یاسای خێزانی ئیسلامیدا پسپۆڕە.</span></li>
+          <li><span class="li-icon" aria-hidden="true">📝</span><span>هەموو شت پێش ئەنجامدانی عەقدنامە بنووسە. مەرجی نووسراو و واژووکراو و شاهیدیکراو زیاتر دەگرێت.</span></li>
+          <li><span class="li-icon" aria-hidden="true">🕌</span><span>لەگەڵ مۆڵایەک یان زانایی ئایینیی دادپەروەر مشاوەرە بکە کە بە مافی ژنان لە ئیسلامدا ڕێزگری دەکات.</span></li>
+          <li><span class="li-icon" aria-hidden="true">💬</span><span>داواکردنی عەقدنامەیەکی دادپەروەر نیشانەی سەختی نییە — پەیرۆی فەرمانی قورئانی بۆ پابەندی بە پەیمانت دەکات.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES -->
+  <section id="resources" class="page-section" aria-labelledby="resources-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">یارمەتی وەربگرە</span>
+      <h2 class="section-title" id="resources-heading">سەرچاوە و پشتیوانی — کوردستان و دیاسپۆرا</h2>
+      <p class="section-subtitle">تەنها نیت. ئۆرگانیزەیشنو کەسانی هەن کە دەتوانن بە نهێنیترین شێوە کومەکت بکەن.</p>
+
+      <div class="resource-grid" role="list">
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🇮🇶</div>
+          <h3>هەرێمی کوردستان — هێڵی ئەورژانسی</h3>
+          <p>حکومەتی هەرێمی کوردستان هێڵی خۆرایی ٢٤ کاتژمێری ئەورژانسی ١١٩ بۆ توندوتیژی ماڵەوەیی بەڕێوە دەبات. متخەصیص لە سەرووی یاسایی، کۆمەڵایەتی و دەروونیدا بەردەستن.</p>
+          <div class="emergency-strip" role="alert">🚨 هێڵی ئەورژانسی ٨ بەشی هەرێمی کوردستان: <strong>١١٩</strong> (خۆرایی، ٢٤ کاتژمێر)</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🤝</div>
+          <h3>ASUDA — سولەیمانی</h3>
+          <p>سازمانی ASUDA بۆ مەنعکردنی توندوتیژی دژی ژنان یەکێکە لە سازمانانی پێشتاژی ژنانی عێراقی. خزمەتگوزارییەکانیان: یارمەتیی یاسایی، پشتیوانیی دەروونی، ئاگادارکردنەوە. لە سولەیمانی، ئەربیل، دهۆک و هەڵەبجە هاوکاری دەکەن.</p>
+          <a href="https://asuda.krd" class="org-link" target="_blank" rel="noopener noreferrer">ASUDA ↗</a>
+          <p style="font-size:.8rem;color:var(--text-muted);margin-top:.4rem;font-style:italic;">ئیمەیڵ: referrals@seedkurdistan.org بۆ ئەربیل و سولەیمانی</p>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🌱</div>
+          <h3>SEED Foundation — هەرێمی کوردستان</h3>
+          <p>SEED Foundation سازمانێکی کوردیی ناوخۆییە کە لە هەرێمی کوردستاندا تایبەت بە حیفاظت، هێزدانی ژنان، و دژایەتیکردن لە توندوتیژیی ڕەگەزی دەکات.</p>
+          <a href="https://www.seedkurdistan.org" class="org-link" target="_blank" rel="noopener noreferrer">SEED ↗</a>
+          <div class="emergency-strip" role="alert">📞 SEED: ٠٧٥١ ٧٤١ ٦٣٩١ (ئەربیل/سولەیمانی) · ٠٧٥١ ٧٤٠ ٦٨٢٦ (دهۆک)</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🇬🇧</div>
+          <h3>IKWRO — بریتانیا</h3>
+          <p>سازمانی مافی ژنانی ئیرانی و کوردی — خزمەتگوزارییەکانیان بە کوردی، فارسی، عەرەبی و ئینگلیزی بەردەستن. یارمەتیی خۆرای، نهێنی، لە بریتانیادا.</p>
+          <a href="https://ikwro.org.uk" class="org-link" target="_blank" rel="noopener noreferrer">IKWRO ↗</a>
+          <div class="emergency-strip" role="alert">📞 دفتر: ٠٢٠٧ ٩٢٠ ٦٤٦٠ · ئەورژانسی کوردی/عەرەبی: ٠٧٨٤٦ ٢٧٥٢٤٦ (٢٤ کاتژمێر)</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🏙️</div>
+          <h3>KMEWO — لەندەن</h3>
+          <p>سازمانی ژنانی کورد و ڕۆژهەڵاتی ناوەڕاست لە لەندەن — خزمەتگوزاری بەکوردی، عەرەبی، فارسی و ئینگلیزی بۆ ژنانی دانیشتوو لە بریتانیا.</p>
+          <a href="https://www.kmewo.com" class="org-link" target="_blank" rel="noopener noreferrer">KMEWO ↗</a>
+          <div class="emergency-strip" role="alert">📞 ئۆفیس: ٠٢٠ ٧٢٦٣ ١٠٢٧ · هێڵی VAWG: ٠٧٧٤٨ ٨٥١١٢٥</div>
+        </div>
+
+        <div class="resource-card" role="listitem">
+          <div class="res-icon" aria-hidden="true">🌍</div>
+          <h3>سازمانانی نێودەوڵەتی</h3>
+          <p>Musawah — جووڵەی جیهانی بۆ یەکسانی لە یاسای خێزانی موسوڵمان. UN Women — سازمانی ژنانی نەتەوە یەکگرتووەکان بۆ گشت هەرێمەکان.</p>
+          <a href="https://www.musawah.org" class="org-link" target="_blank" rel="noopener noreferrer">Musawah ↗</a>
+          <a href="https://www.unwomen.org" class="org-link" target="_blank" rel="noopener noreferrer">UN Women ↗</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PRIVACY & SAFETY -->
+  <section id="privacy-safety" class="page-section" aria-labelledby="safety-heading">
+    <div class="container">
+      <div class="ornament" aria-hidden="true">✦</div>
+      <span class="badge">ئەمنیەتی ئۆنلاین</span>
+      <h2 class="section-title" id="safety-heading">تایبەتی و ئەمنیەت</h2>
+      <p class="section-subtitle">ئەگەر تۆ خەمخۆری ئەوەیت هەیە کە کەسێک ببینێت ئەم پەڕەیت کردووەوە — ئەم قەدەمانە ساکار دنبالبکە. ئەمنیەتت لە پێشیا.</p>
+      <div class="safety-grid" role="list">
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🚪</div>
+          <h3>وەرچووندنی خێرا</h3>
+          <p>دوگمەی سووری <strong>«وەرچووندنی خێرا»</strong> لە سەرووی پەڕە فوری تۆی بۆ گووگڵ دەبات. دەتوانیت دوو جار خێرا کلیلی <kbd>Escape</kbd> دابفشریت.</p>
+        </div>
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🕵️</div>
+          <h3>گەڕانی تایبەت (Incognito)</h3>
+          <p>لە حاڵەتی گەڕانی تایبەتدا مێژووی گەڕانەکەت پاشەکەوت ناکرێت.</p>
+          <details class="browser-steps">
+            <summary>چۆن پەنجەرەی تایبەت دەکرێتەوە؟</summary>
+            <ol>
+              <li><strong>Chrome / Edge:</strong> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd></li>
+              <li><strong>Firefox:</strong> <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd></li>
+              <li><strong>Safari (iPhone):</strong> ئایکۆنی تابەکان ← «Private» ← «+»</li>
+              <li><strong>Chrome (ئەندرۆید):</strong> سێ خاڵ ← «تابی نهێنیی نوێ»</li>
+            </ol>
+          </details>
+        </div>
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">🗑️</div>
+          <h3>پاکردنەوەی مێژوو</h3>
+          <details class="browser-steps">
+            <summary>چۆن مێژوو پاک بکەمەوە؟</summary>
+            <ol>
+              <li><strong>Chrome:</strong> <kbd>Ctrl</kbd>+<kbd>H</kbd> ← ئەم پەڕەیت بدۆزەوە ← سێ خاڵ ← «لابردن»</li>
+              <li><strong>ئەندرۆید:</strong> سێ خاڵ ← مێژوو ← گرت ← «لابردن»</li>
+              <li><strong>Safari (iPhone):</strong> ڕێکخستن ← Safari ← «پاکردنەوەی مێژوو»</li>
+            </ol>
+          </details>
+        </div>
+        <div class="safety-card" role="listitem">
+          <div class="s-icon" aria-hidden="true">📱</div>
+          <h3>ئەمنیەتی مۆبایل</h3>
+          <ul>
+            <li>ئەگەر دڵنیا نیت مۆبایلەکەت ئەمن نییە، مۆبایلی هاوڕێیەک یان کۆمپیوتەری کتێبخانەیەک بەکاربهێنە.</li>
+            <li>بۆ پەیوەندییەکانی هەستیار ئیمەیڵی جیاوازێک دروستبکە.</li>
+            <li>بەڵگەنامە گرنگەکان بدە بە کەسێکی متمانەپێکراو بمێنیتەوە.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <span class="footer-ornament" aria-hidden="true">☽ ✦ ☽</span>
+  <p><strong>«و بە باشی لەگەڵیان ژیان بکەن.» — سورەی نساء، ئایەتی ١٩</strong></p>
+  <p style="margin-top:.8rem;">ئەم پەڕەیە تەنها بۆ مەبەستی پەروەردەیی ئیسلامییە. ئەمەش مشاوەرەی یاسایی نییە.<br />تکایە بۆ بارودۆخی کەسیت لە متخەصیصانی یاسایی و ئایینی ئەرشادت بخوازە.</p>
+  <p style="margin-top:.6rem;font-size:.78rem;opacity:.6;">هەموو وەرگێرانەکانی قورئانی کەریم نزیکایەتین بۆ ئاسانکردنی تێگەیشتن. بۆ خوێندنی قووڵتر سەرووی تەفسیر بکرێت.</p>
+</footer>
+
+<script>
+  function quickExit(){try{window.history.replaceState(null,'','https://www.google.com');}catch(e){}window.location.replace('https://www.google.com');}
+  var escTaps=0;
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'){escTaps++;if(escTaps>=2)quickExit();setTimeout(function(){escTaps=0;},800);}
+  });
+  function toggleAccordion(btn,bodyId){
+    var body=document.getElementById(bodyId);
+    var isOpen=btn.getAttribute('aria-expanded')==='true';
+    document.querySelectorAll('.accordion-trigger').forEach(function(b){b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.accordion-body').forEach(function(b){b.classList.remove('is-open');});
+    if(!isOpen){btn.setAttribute('aria-expanded','true');body.classList.add('is-open');setTimeout(function(){body.scrollIntoView({behavior:'smooth',block:'nearest'});},50);}
+  }
+  function switchRegion(code){
+    document.querySelectorAll('.rtab').forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');});
+    document.querySelectorAll('.region-panel').forEach(function(p){p.classList.remove('active');});
+    var btn=document.querySelector('.rtab[onclick*="\''+code+'\'"]');
+    if(btn){btn.classList.add('active');btn.setAttribute('aria-selected','true');}
+    var panel=document.getElementById('panel-'+code);
+    if(panel){panel.classList.add('active');}
+  }
+  function handleTTS(){
+    if('speechSynthesis' in window){
+      if(window.speechSynthesis.speaking){window.speechSynthesis.cancel();document.getElementById('tts-btn').querySelector('span:last-child').textContent='گوێ بگرە';return;}
+      var content=document.getElementById('main-content').innerText;
+      var utterance=new SpeechSynthesisUtterance(content.substring(0,5000));
+      utterance.rate=0.85; utterance.lang='ku';
+      utterance.onend=function(){document.getElementById('tts-btn').querySelector('span:last-child').textContent='گوێ بگرە';};
+      window.speechSynthesis.speak(utterance);
+      document.getElementById('tts-btn').querySelector('span:last-child').textContent='وەستاندن';
+    }else{alert('مرۆقراک پشتیوانیی ئەم تایبەتمەندییە ناکات. تکایە Google Chrome هەوڵ بدە.');}
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.accordion-trigger').forEach(function(btn){
+      btn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();btn.click();}});
+    });
+  });
+</script>
+</body>
+</html>
